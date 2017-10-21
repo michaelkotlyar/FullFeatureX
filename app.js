@@ -11,15 +11,6 @@ var users = require('./routes/users');
 
 var app = express();
 
-require("jsdom").env("", function(err, window) {
-    if (err) {
-        console.error(err);
-        return;
-    }
-
-    var $ = require("jquery")(window);
-});
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
