@@ -1,7 +1,5 @@
 $(function() {
 
-
-  console.log('footer');
-
+  "use strict";
 
 });
