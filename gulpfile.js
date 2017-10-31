@@ -33,7 +33,6 @@ const nodemonConfig = {
   }
 };
 
-
 //default task
 gulp.task('default', () => {
   runSequence(
