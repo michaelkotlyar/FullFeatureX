@@ -7,7 +7,7 @@ var nodemon = require('gulp-nodemon');
 var plumber = require('gulp-plumber');
 var server = require('tiny-lr')();
 
-// *** config *** //
+//config
 
 var paths = {
   scripts: [
@@ -34,6 +34,7 @@ const nodemonConfig = {
 };
 
 //default task
+
 gulp.task('default', () => {
   runSequence(
     ['jshint'],
