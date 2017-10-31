@@ -27,7 +27,6 @@ app.use(sassMiddleware({
   dest: 'css',
   prefix: '/stylesheets/css',
   outputStyle: 'compressed',
-  debug: true,
   indentedSyntax: true
 }));
 app.use(express.static(path.join(__dirname, 'public')));
