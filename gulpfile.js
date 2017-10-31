@@ -9,7 +9,7 @@ gulp.task('static', function() {
     });
 });
 
-gulp.task('custom', function() {
+gulp.task('default', function() {
     var server = gls('bin/www');
     server.start().then(function(result) {
         console.log('Server exited with result:', result);
