@@ -22,10 +22,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(sassMiddleware({
-  src: path.join(__dirname, 'public/stylesheets/sass'),
-  dest: path.join(__dirname, 'public/stylesheets/css'),
-  indentedSyntax: true, // true = .sass and false = .scss
-  sourceMap: path.join(__dirname, 'public/stylesheets/css')
+  root: path.join(__dirname, 'public/stylesheets'),
+  src: 'sass',
+  dest: 'css',
+  prefix: '/stylesheets/css',
+  outputStyle: 'compressed',
+  debug: true,
+  indentedSyntax: true
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
