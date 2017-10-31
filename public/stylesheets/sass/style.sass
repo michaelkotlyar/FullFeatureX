@@ -11,12 +11,6 @@
 // typography
 @import "partials/typography"
 
-// import mixins
-@import "partials/mixins"
-
-// the grid
-@import "susy"
-
 /**********************/
 //     BREAKPOINTS    //
 /**********************/
@@ -25,26 +19,21 @@
 @import "breakpoints/base"
 
 //larger devices
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 481px)
 	@import "breakpoints/481up"
-}
 
 //tablets/ small laptops
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 768px)
 	@import "breakpoints/768up"
-}
 
 //desktop
-@media only screen and (min-width: 1030px) {
+@media only screen and (min-width: 1030px)
 	@import "breakpoints/1030up"
-}
 
 //large desktop monitors/ fullscreen
-@media only screen and (min-width: 1240px) {
+@media only screen and (min-width: 1240px)
 	@import "breakpoints/1240up"
-}
 
 //high res/ retina
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5)
 	@import "breakpoints/2x"
-}
