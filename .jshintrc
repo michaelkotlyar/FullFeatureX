@@ -1,4 +1,11 @@
 {
-  "strict": true,
-  "laxcomma": true
+  "boss":      true,
+  "node":      true,
+  "eqeqeq":    true,
+  "strict":    false,
+  "newcap":    false,
+  "undef":     true,
+  "unused":    false,
+  "onecase":   true,
+  "lastsemic": true
 }

@@ -1,13 +1,6 @@
 var gulp = require('gulp');
 var gls = require('gulp-live-server');
-
-gulp.task('static', function() {
-    var server = gls.static('static', 3000);
-    server.start();
-    gulp.watch(['public/**/*.css', 'public/**/*.html'], function(file) {
-        server.notify.apply(server, [file]);
-    });
-});
+var jshint = require('gulp-jshint');
 
 gulp.task('default', function() {
     var server = gls('bin/www');
@@ -19,4 +12,18 @@ gulp.task('default', function() {
         server.notify.apply(server, [file]);
     });
     gulp.watch('bin/www', server.start);
+});
+
+gulp.task('static', function() {
+    var server = gls.static('static', 3000);
+    server.start();
+    gulp.watch(['public/**/*.css', 'public/**/*.html'], function(file) {
+        server.notify.apply(server, [file]);
+    });
+});
+
+gulp.task('lint', function() {
+  return gulp.src('routes/*.js')
+    .pipe(jshint())
+    .pipe(jshint.reporter('default', { verbose: true }));
 });
