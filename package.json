@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "test": "./node_modules/.bin/jasmine-node spec"
+    "test": "node_modules/.bin/jasmine-node spec"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
@@ -12,10 +12,10 @@
     "express": "~4.15.2",
     "morgan": "~1.8.1",
     "node-sass-middleware": "0.9.8",
+    "pug": "^2.0.0-rc.4",
     "serve-favicon": "~2.4.2"
   },
   "devDependencies": {
-    "fail": "0.0.0",
     "gulp": "^3.9.1",
     "gulp-jscs": "^4.0.0",
     "gulp-jshint": "^2.0.4",
