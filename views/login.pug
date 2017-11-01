@@ -1,7 +1,9 @@
-extends layout
+extends centered
 
 block content
+  h1= title
   .user-box
     form.login
       input(type='text', name='user', placeholder='username')
       input(type='password', name='password', placeholder='password')
+      input(type='submit')
