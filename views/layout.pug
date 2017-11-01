@@ -1,15 +1,25 @@
 doctype html
-html
+html(lang='eng')
   head
-    title= title
-    meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
-    script(type='text/javascript' src='/javascripts/jquery-3.2.1.slim.min.js')
+    title FullFeatureX - #{title}
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    script(type='text/javascript' src='/javascripts/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous')
     script(type='text/javascript' src='/javascripts/popper.min.js')
     script(type='text/javascript' src='/javascripts/bootstrap.min.js')
     script(type='text/javascript' src='/javascripts/main-head.js')
     link(rel='stylesheet', href='/stylesheets/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/css/style.css')
   body
-    block content
-    footer
+    header
+      nav(class='navbar navbar-expand-md navbar-dark fixed-top bg-dark')
+        a(href='/').navbar-brand FullFeatureX
+    .container-fluid
+      nav(class='col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar')
+        ul(class='nav nav-pills flex-column')
+      main(class='col-sm-9 ml-sm-auto col-md-10 pt-3' role='main')
+        block content
+    footer.footer
+      .col-sm-9.ml-sm-auto.col-md-10
+        p Official Drain © Lisenced Product 2017
       script(type='text/javascript' src='/javascripts/main-footer.js')
