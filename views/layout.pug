@@ -1,24 +1,10 @@
 doctype html
 html(lang='eng')
   head
-    title FullFeatureX - #{title}
-    meta(charset='utf-8')
-    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
-    script(type='text/javascript' src='/javascripts/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous')
-    script(type='text/javascript' src='/javascripts/popper.min.js')
-    script(type='text/javascript' src='/javascripts/bootstrap.min.js')
-    script(type='text/javascript' src='/javascripts/main-head.js')
-    link(rel='stylesheet', href='/stylesheets/css/bootstrap.min.css')
-    link(rel='stylesheet', href='/stylesheets/css/style.css')
+    include head
   body
     header
-      nav(class='navbar navbar-expand-md navbar-dark fixed-top bg-dark')
-        a(href='/').navbar-brand FullFeatureX
-        button(class='navbar-toggler d-lg-none' type='button' data-toggle='collapse' data-target='#topnav' aria-controls='topnav' aria-expanded='false' aria-label='Toggle navigation')
-          span.navbar-toggler-icon
-        #topnav.collapse.navbar-collapse
-          ul.navbar-nav.mr-auto
-            include top-menu-items
+     include header
     .container-fluid
       nav(class='col-sm-3 col-md-2 d-sm-block bg-light sidebar')
         ul(class='nav nav-pills flex-column')
@@ -26,6 +12,4 @@ html(lang='eng')
       main(class='col-sm-9 ml-sm-auto col-md-10 pt-3' role='main')
         block content
     footer.footer
-      .col-sm-9.ml-sm-auto.col-md-10
-        p Official Drain © Lisenced Product 2017
-      script(type='text/javascript' src='/javascripts/main-footer.js')
+      include footer
