@@ -7,15 +7,20 @@ h1
   border-bottom: 1px solid #eee
 
 .sidebar
-  position: fixed
-  top: 51px
-  bottom: 0
-  left: 0
-  z-index: 1000
+  width: calc(100% + 30px)
+  margin: 0 -15px
   padding: 20px 0
-  overflow-x: hidden
-  overflow-y: auto
-  border-right: 1px solid #eee
+  border-bottom: 1px solid #eee
+  .nav-item
+    width: 100%
+    .nav-link
+      border-radius: 0
+      &.active
+        color: #fff
+        background-color: #007bff
+
+button
+  cursor: pointer
 
 .footer
   position: absolute

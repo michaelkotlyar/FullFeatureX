@@ -1,0 +1,7 @@
+mixin list-item(url, label)
+  li.nav-item
+    a.nav-link(href=url)=label
+
++list-item('/', 'Home')
++list-item('/profile', 'Profile')
++list-item('/help', 'Help')
