@@ -15,24 +15,24 @@
 //     BREAKPOINTS    //
 /**********************/
 
-//base
+// Extra small devices (portrait phones, less than 576px)
 @import "breakpoints/base"
 
-//larger devices
-@media only screen and (min-width: 481px)
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px)
 	@import "breakpoints/481up"
 
-//tablets/ small laptops
-@media only screen and (min-width: 768px)
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px)
 	@import "breakpoints/768up"
 
-//desktop
-@media only screen and (min-width: 1030px)
-	@import "breakpoints/1030up"
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px)
+	@import "breakpoints/992up"
 
-//large desktop monitors/ fullscreen
-@media only screen and (min-width: 1240px)
-	@import "breakpoints/1240up"
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px)
+	@import "breakpoints/1200up"
 
 //high res/ retina
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5)
