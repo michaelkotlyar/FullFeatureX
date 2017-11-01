@@ -3,9 +3,12 @@ html
   head
     title= title
     script(type='text/javascript' src='/javascripts/jquery-3.2.1.min.js')
-    script(type='text/javascript' src='/javascripts/head.js')
+    script(type='text/javascript' src='/javascripts/popper.min.js')
+    script(type='text/javascript' src='/javascripts/bootstrap.min.js')
+    script(type='text/javascript' src='/javascripts/main-head.js')
+    link(rel='stylesheet', href='/stylesheets/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/css/style.css')
   body
     block content
     footer
-      script(type='text/javascript' src='/javascripts/footer.js')
+      script(type='text/javascript' src='/javascripts/main-footer.js')
