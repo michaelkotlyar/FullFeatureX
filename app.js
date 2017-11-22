@@ -31,6 +31,11 @@ app.use(sassMiddleware({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// front end modules
+app.use('/modules/jquery', express.static( __dirname + '/node_modules/jquery/dist'));
+app.use('/modules/popper.js', express.static( __dirname + '/node_modules/popper.js/dist'));
+app.use('/modules/bootstrap', express.static( __dirname + '/node_modules/bootstrap/dist'));
+
 app.use('/', index);
 app.use('/users', users);
 
