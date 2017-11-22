@@ -5,8 +5,9 @@ html(lang='eng' class='no-js')
     meta(http-equiv='x-ua-compatible' content='ie=edge')
     title #{title} · FullFeatureX
     meta(name='description' content='')
-    meta(name='viewport' content='width=device-width, initial-scale=1')
-    //- , shrink-to-fit=no
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    script.
+      (function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)
     link(rel='stylesheet', href='/stylesheets/css/style.css')
   
   body(class=bodyClasses)
