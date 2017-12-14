@@ -1,11 +1,17 @@
 var express = require('express');
 var router = express.Router();
 
-var users = require('../database/');
+var db = require('../database/');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.render('users', { title: 'Users' });
+  db.any('SELECT * FROM users')
+    .then(function(data) {
+      res.render('users', { title: 'Users', users: data });
+    })
+    .catch(function(error) {
+      console.log('WEEWOOWEEWOO');
+    });
 });
 
 router.get('/login', function(req, res, next) {
