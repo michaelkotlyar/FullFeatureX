@@ -26,3 +26,5 @@ var allUsers = function() {
         }
     });
 }
+
+module.exports = allUsers;
