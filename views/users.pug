@@ -1,4 +1,19 @@
 extends dashboard
 
 block content
-  
+  table.table.table-hover.table-sm.table-responsive-xl
+    thead
+      tr
+        th(scope="col") user_id
+        th(scope="col") user_name
+        th(scope="col") user_password
+        th(scope="col") user_email
+        th(scope="col") user_type
+      tbody
+        for user in users
+          tr
+            th(scope="row") #{user.user_id}
+            td #{user.user_name}
+            td #{user.user_password}
+            td #{user.user_email}
+            td #{user.user_type}
