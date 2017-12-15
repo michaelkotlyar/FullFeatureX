@@ -7,7 +7,6 @@ var db = require('../database/');
 router.get('/', function(req, res, next) {
   db.getAllUsers()
     .then(users => {
-      console.log(users);
       res.render('users', { title: 'Users', users: users });
     })
     .catch(error => {
