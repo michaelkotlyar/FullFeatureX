@@ -5,12 +5,13 @@ var db = require('../database/');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  db.any('SELECT * FROM users')
-    .then(function(data) {
-      res.render('users', { title: 'Users', users: data });
+  db.getAllUsers()
+    .then(users => {
+      console.log(users);
+      res.render('users', { title: 'Users', users: users });
     })
-    .catch(function(error) {
-      console.log('WEEWOOWEEWOO');
+    .catch(error => {
+      res.render('error', { error: error });
     });
 });
 
