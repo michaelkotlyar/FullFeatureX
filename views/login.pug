@@ -2,8 +2,15 @@ extends centered
 
 block content
   h1= title
-  .user-box
-    form.login
-      input(type="text", name="user", placeholder="username")
-      input(type="password", name="password", placeholder="password")
-      input(type="submit")
+  .container
+    .row
+      .col-md-4.offset-md-4
+        form.login
+          .form-group
+            label(for="loginEmail") Email Address
+            input(id="loginEmail" class="form-control" type="email", placeholder="Enter email")
+          .form-group
+            label(for="loginPassword") Password
+            input(id="loginPassword", class="form-control", type="password", placeholder="Password")
+          .form-group.text-center
+            button(type="submit", class="btn btn-primary") Submit
