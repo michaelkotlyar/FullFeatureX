@@ -5,12 +5,12 @@ block content
   .container
     .row
       .col-md-4.offset-md-4
-        form.login
+        form.login(action="/login" method="post")
           .form-group
-            label(for="loginEmail") Email Address
-            input(id="loginEmail" class="form-control" type="email", placeholder="Enter email")
+            label(for="loginUsername") Username
+            input(id="loginUsername" class="form-control", name="username", type="username", placeholder="Username")
           .form-group
             label(for="loginPassword") Password
-            input(id="loginPassword", class="form-control", type="password", placeholder="Password")
+            input(id="loginPassword", class="form-control", name="password", type="password", placeholder="Password")
           .form-group.text-center
             button(type="submit", class="btn btn-primary") Submit

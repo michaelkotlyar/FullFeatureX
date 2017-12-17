@@ -6,16 +6,17 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Dashboard', bodyClasses: ['dashboard'] });
 });
 
-/////////////////////////
-/* Aesthetic redirects */
-/////////////////////////
-
 router.get('/dashboard', function(req, res, next) {
   res.redirect('/');
 });
 
 router.get('/login', function(req, res, next) {
-  res.redirect('/users/login');
+  res.render('login', { title: 'Login' });
+});
+
+router.get('/logout', function(req, res) {
+  req.logout();
+  res.redirect('/');
 });
 
 module.exports = router;
