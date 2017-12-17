@@ -1,7 +1,6 @@
 const initOptions = {
   error(err, e) {
-    console.log(e);
-    console.log(err);
+    console.log(e + '\n' + err);
   }
 };
 
@@ -18,9 +17,7 @@ const cn = {
 const db = pgp(cn);
 
 const getAllUsers = () => db.any('SELECT * FROM users');
-
 const getUser = (username) => db.one('SELECT * FROM users WHERE user_name = $1', [username]);
-
 const getUserById = (id) => db.one('SELECT * FROM users WHERE user_id = $1', [id]);
 
 module.exports = {
