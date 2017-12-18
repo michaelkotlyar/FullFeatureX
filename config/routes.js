@@ -3,7 +3,7 @@ var router = express.Router();
 var db = require('./database');
 var helper = require('./helpers');
 
-module.exports = (passport) => {
+module.exports = passport => {
 
   router.get('/', helper.loggedIn, function(req, res, next) {
     var renderObject = { title: 'Dashboard', bodyClasses: ['dashboard'] };
@@ -27,10 +27,14 @@ module.exports = (passport) => {
 
   router.post('/login', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }));
 
-  router.get('/users', function(req, res, next) {
+  router.get('/users', helper.loggedIn, function(req, res, next) {
     db.getAllUsers()
       .then(users => {
-        res.render('users', { title: 'Users', users: users });
+        var renderObject = { title: 'Users', users: users };
+        if (req.user) {
+          renderObject.username = req.user.user_name;
+        }
+        res.render('users', renderObject);
       })
       .catch(error => {
         res.render('error', { error: error });

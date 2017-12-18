@@ -42,9 +42,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(require('connect-flash')());
-
 require('./config/passport')(passport);
-
 app.use('/', require('./config/routes')(passport));
 
 // front end modules
