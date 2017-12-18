@@ -4,15 +4,12 @@ var bcrypt = require('bcryptjs');
 
 module.exports = (passport) => {
   passport.serializeUser(function (user, done) {
-    console.log('serialize ' + user.user_id);
     done(null, user.user_id);
   });
 
   passport.deserializeUser(function (id, done) {
-    console.log('deserialize ' + id);
     db.getUserById(id)
     .then((user) => {
-      console.log('deserialization SUCCess')
       done(null, user);
     })
     .catch((error) => {

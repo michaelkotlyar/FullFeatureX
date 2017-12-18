@@ -4,7 +4,11 @@ var passport = require('../config/passport');
 
 /* GET home page. */
 router.get('/', loggedIn, function(req, res, next) {
-  res.render('index', { title: 'Dashboard', bodyClasses: ['dashboard'] });
+  var renderObject = { title: 'Dashboard', bodyClasses: ['dashboard'] };
+  if (req.user) {
+    renderObject.username = req.user.user_name;
+  }
+  res.render('index', renderObject);
 });
 
 router.get('/login', function(req, res, next) {
