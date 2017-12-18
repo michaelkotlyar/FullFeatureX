@@ -12,10 +12,12 @@ router.get('/dashboard', function(req, res, next) {
 });
 
 router.get('/login', function(req, res, next) {
-  res.render('login', {
-    title: 'Login',
-    message: req.flash('error')
-  });
+  var renderObject = { title: 'Login' };
+  var warningMsg = req.flash('error');
+  if (warningMsg.length !== 0) {
+    renderObject.warning = warningMsg;
+  }
+  res.render('login', renderObject);
 });
 
 router.post('/login',

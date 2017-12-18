@@ -5,12 +5,19 @@ block content
   .container
     .row
       .col-md-4.offset-md-4
+        if warning
+          .alert.alert-warning.alert-dismissible.fade.show(role="alert")
+            button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+              span(aria-hidden="true") &times;
+            strong Something went wrong… 
+            br
+            span #{warning}
         form.login(action="/login" method="post")
           .form-group
             label(for="loginUsername") Username
-            input(id="loginUsername" class="form-control", name="username", type="username", placeholder="Username")
+            input(id="loginUsername" class="form-control" name="username" type="username" placeholder="Username")
           .form-group
             label(for="loginPassword") Password
-            input(id="loginPassword", class="form-control", name="password", type="password", placeholder="Password")
+            input(id="loginPassword" class="form-control" name="password" type="password", placeholder="Password")
           .form-group.text-center
-            button(type="submit", class="btn btn-primary") Submit
+            button(type="submit" class="btn btn-primary") Submit
