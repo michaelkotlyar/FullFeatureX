@@ -41,5 +41,13 @@ module.exports = passport => {
       });
   });
 
+  router.get('/register', function(req, res, next) {
+    res.render('register', { title: 'Register' });
+  });
+
+  router.post('/register', function(req, res, next) {
+    helper.createUser(req, res);
+  });
+
   return router;
 };
