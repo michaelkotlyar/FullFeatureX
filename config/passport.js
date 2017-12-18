@@ -32,7 +32,7 @@ passport.use(new LocalStrategy(
       });
     })
     .catch((error) => {
-      return done(null, false, { message:'Wrong user name or password.' });
+      return done(null, false, { message:'Wrong username or password.' });
     });;
   }
 ));
