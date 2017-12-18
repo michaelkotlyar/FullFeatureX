@@ -2,8 +2,9 @@ mixin list-item(url, label)
   li.nav-item
     a.nav-link(href=url)=label
 
-+list-item("/dashboard", "Dashboard")
-+list-item("/profile", "Profile")
++list-item("/", "Dashboard")
 +list-item("/help", "Help")
 li.seperator
+if username
+  +list-item("/profile", "Logged in as " + username)
 +list-item("/logout", "Logout")

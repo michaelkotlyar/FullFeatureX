@@ -45,16 +45,12 @@ app.use(require('connect-flash')());
 
 require('./config/passport')(passport);
 
-var index = require('./routes/index')(passport);
-var users = require('./routes/users');
+app.use('/', require('./config/routes')(passport));
 
 // front end modules
 app.use('/modules/jquery', express.static( __dirname + '/node_modules/jquery/dist'));
 app.use('/modules/popper.js', express.static( __dirname + '/node_modules/popper.js/dist'));
 app.use('/modules/bootstrap', express.static( __dirname + '/node_modules/bootstrap/dist'));
-
-app.use('/', index);
-app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
