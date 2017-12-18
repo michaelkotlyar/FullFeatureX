@@ -12,14 +12,19 @@ router.get('/dashboard', function(req, res, next) {
 });
 
 router.get('/login', function(req, res, next) {
-  res.render('login', { title: 'Login' });
+  res.render('login', {
+    title: 'Login',
+    message: req.flash('error')
+  });
 });
 
 router.post('/login',
   passport.authenticate('local', {
     successRedirect: '/dashboard',
-    failureRedirect: '/login' })
-  );
+    failureRedirect: '/login',
+    failureFlash: true
+  })
+);
 
 router.get('/logout', function(req, res) {
   req.logout();

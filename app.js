@@ -6,7 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var sassMiddleware = require('node-sass-middleware');
-var flash = require('connect-flash');
 
 require('dotenv').config();
 
@@ -26,7 +25,6 @@ app.set('view engine', 'pug');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(sassMiddleware({
   root: path.join(__dirname, 'public', 'stylesheets'),
   src: 'sass',
@@ -35,12 +33,17 @@ app.use(sassMiddleware({
   outputStyle: 'compressed',
   indentedSyntax: true
 }));
+
+app.use(cookieParser());
 app.use(session({
   secret: process.env.SECRET_KEY,
+  name: 'sid',
   resave: false,
   saveUninitialized: true
   // cookie: { secure: true }
 }));
+app.use(require('connect-flash')());
+
 app.use(passport.initialize());
 app.use(passport.session());
 

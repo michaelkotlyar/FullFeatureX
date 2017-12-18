@@ -1,7 +1,7 @@
 const initOptions = {
-  error(err, e) {
-    console.log(e + '\n' + err);
-  }
+  // error(err, e) {
+  //   console.log(e + '\n' + err);
+  // }
 };
 
 const pgp = require('pg-promise')(initOptions);
