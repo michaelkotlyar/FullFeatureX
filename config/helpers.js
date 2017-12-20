@@ -45,5 +45,7 @@ module.exports = {
   modifyUser: (req, res) => {
     var changeUsername = false, changeEmail = false, changeImage = false;
     if (req.username !== req.body.username && req.username !== '') changeUsername = true;
+    if (req.email !== req.body.email && req.email !== '') changeEmail = true;
+    if (req.image) changeImage = true;
   }
 };
