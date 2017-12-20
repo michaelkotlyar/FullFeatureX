@@ -5,6 +5,7 @@ var initOptions = {
 };
 
 var pgp = require('pg-promise')(initOptions);
+var sql = require('./sql');
 
 var cn = {
   host: process.env.DB_HOST,
@@ -15,13 +16,6 @@ var cn = {
 };
 
 var db = pgp(cn);
-
-
-var path = require('path');
-
-function sql(file) {
-  return new pgp.QueryFile(path.join(__dirname, 'sql', file + '.sql'), { minify: true });
-}
 
 module.exports = {
   getAllUsers: () => db.any(sql('getAllUsers')),

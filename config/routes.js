@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var db = require('./database/');
+var User = require('./models/user');
 var helper = require('./helpers');
 
 module.exports = passport => {
@@ -14,7 +14,7 @@ module.exports = passport => {
   });
 
   router.get('/users', function(req, res, next) {
-    db.getAllUsers()
+    User.getAllUsers()
       .then(users => {
         var renderObject = { title: 'Users', users: users };
         if (req.user) {

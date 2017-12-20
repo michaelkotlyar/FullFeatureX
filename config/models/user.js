@@ -3,6 +3,10 @@ var bcrypt = require('bcryptjs');
 
 var User = {};
 
+User.getAllUsers = () => {
+  return db.getAllUsers();
+}
+
 User.findByUserName = (userName) => {
   return db.getUser(username);
 }

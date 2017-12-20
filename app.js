@@ -28,6 +28,11 @@ app.use(sassMiddleware({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// front end modules
+app.use('/vendor/jquery', express.static( __dirname + '/node_modules/jquery/dist'));
+app.use('/vendor/popper.js', express.static( __dirname + '/node_modules/popper.js/dist'));
+app.use('/vendor/bootstrap', express.static( __dirname + '/node_modules/bootstrap/dist'));
+
 app.use(session({
   secret: process.env.SECRET_KEY,
   resave: true,
@@ -43,11 +48,6 @@ app.use(passport.session());
 app.use(require('connect-flash')());
 require('./config/passport')(passport);
 app.use('/', require('./config/routes')(passport));
-
-// front end modules
-app.use('/vendor/jquery', express.static( __dirname + '/node_modules/jquery/dist'));
-app.use('/vendor/popper.js', express.static( __dirname + '/node_modules/popper.js/dist'));
-app.use('/vendor/bootstrap', express.static( __dirname + '/node_modules/bootstrap/dist'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
