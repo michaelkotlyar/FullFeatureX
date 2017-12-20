@@ -24,12 +24,11 @@ function sql(file) {
 }
 
 module.exports = {
-
   getAllUsers: () => db.any(sql('getAllUsers')),
   getUser: (username) => db.one(sql('getUserByUsername'), [username]),
   getUserById: (id) => db.one(sql('getUserById'), [id]),
   getUserByEmail: (email) => db.one(sql('getUserByEmail'), [email]),
   uniqueUserUsername: (username) => db.query(sql('uniqueUsername'), [username]),
   uniqueUserEmail: (email) => db.query(sql('uniqueEmail'), [email]),
-  registerUser: (username, email, password) => db.none('INSERT INTO users(user_name, user_password, user_email, user_type) values($1, $2, $3, 0)', [username, email, password])
+  registerUser: (username, email, password) => db.none(sql('createUser'), [username, email, password, 0])
 };
