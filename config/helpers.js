@@ -43,6 +43,11 @@ function createUser(req, res) {
     });
 }
 
+function modifyUser(req, res) {
+  var changeUsername = false, changeEmail = false, changeImage = false;
+  if (req.username !== req.body.username && req.username !== '') changeUsername = true;
+}
+
 module.exports = {
   loggedIn,
   createUser

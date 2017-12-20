@@ -13,20 +13,6 @@ module.exports = passport => {
     res.render('index', renderObject);
   });
 
-  router.get('/login', function(req, res, next) {
-    var renderObject = { title: 'Login' };
-    var warningMsg = req.flash('error');
-    if (warningMsg.length !== 0) { renderObject.warning = warningMsg; }
-    res.render('login', renderObject);
-  });
-
-  router.get('/logout', function(req, res) {
-    req.logout();
-    res.redirect('/login');
-  });
-
-  router.post('/login', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }));
-
   router.get('/users', helper.loggedIn, function(req, res, next) {
     db.getAllUsers()
       .then(users => {
@@ -41,12 +27,52 @@ module.exports = passport => {
       });
   });
 
+  router.get('/graphs', helper.loggedIn, function(req, res, next) {
+    var renderObject = { title: 'Graphs' };
+    if (req.user) {
+      renderObject.username = req.user.user_name;
+    }
+    res.render('dashboard', renderObject);
+  });
+
+  router.get('/login', function(req, res, next) {
+    var renderObject = { title: 'Login' };
+    var warningMsg = req.flash('error');
+    if (warningMsg.length !== 0) { renderObject.warning = warningMsg; }
+    res.render('login', renderObject);
+  });
+
+  router.post('/login', passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/login',
+    failureFlash: true
+  }));
+
+  router.get('/logout', function(req, res) {
+    req.logout();
+    res.redirect('/login');
+  });
+
   router.get('/register', function(req, res, next) {
     res.render('register', { title: 'Register' });
   });
 
   router.post('/register', function(req, res, next) {
     helper.createUser(req, res);
+  });
+
+  router.get('/profile', helper.loggedIn, function(req, res, next) {
+    var renderObject = { title: 'Profile' };
+    if (req.user) {
+      renderObject.username = req.user.user_name;
+      renderObject.email = req.user.user_email;
+      if (req.user.user_image) { renderObject.image = req.user.user_image; }
+    }
+    res.render('profile', renderObject);
+  });
+
+  router.post('/profile', helper.loggedIn, function(req, res, next) {
+    helper.modifyUser(req, res);
   });
 
   return router;

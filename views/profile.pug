@@ -1,0 +1,21 @@
+extends dashboard
+block content
+  form.profile.container-fluid(action="/profile" method="post")
+    .row
+      .col-md-4
+        .form-group
+          label(for="profileChangeName") Change your username
+          input(id="profileChangeName" class="form-control" placeholder="Change your username" name="username" type="username" value=username)
+        .form-group
+          label(for="profileChangeEmail") Change your email
+          input(id="profileChangeEmail" class="form-control" placeholder="Change your email" name="email" type="email" value=email)
+      .col-md-6
+        .form-group
+          if user_image
+            span #{user_image}
+          else
+            span no image
+        .form-group
+          label(for="profileChangeImage") Upload an image of yourself
+          input(type="file" id="profileChangeImage" class="form-control-file")
+    button(class="btn btn-primary" type="submit") Apply changes
