@@ -15,8 +15,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(sassMiddleware({
@@ -46,9 +45,9 @@ require('./config/passport')(passport);
 app.use('/', require('./config/routes')(passport));
 
 // front end modules
-app.use('/modules/jquery', express.static( __dirname + '/node_modules/jquery/dist'));
-app.use('/modules/popper.js', express.static( __dirname + '/node_modules/popper.js/dist'));
-app.use('/modules/bootstrap', express.static( __dirname + '/node_modules/bootstrap/dist'));
+app.use('/vendor/jquery', express.static( __dirname + '/node_modules/jquery/dist'));
+app.use('/vendor/popper.js', express.static( __dirname + '/node_modules/popper.js/dist'));
+app.use('/vendor/bootstrap', express.static( __dirname + '/node_modules/bootstrap/dist'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
