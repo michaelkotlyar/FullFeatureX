@@ -1,6 +1,5 @@
 var LocalStrategy = require('passport-local').Strategy;
-var db = require('./database/');
-var bcrypt = require('bcryptjs');
+var User = require('./models/user');
 
 module.exports = (passport) => {
   passport.serializeUser(function (user, done) {
@@ -8,7 +7,7 @@ module.exports = (passport) => {
   });
 
   passport.deserializeUser(function (id, done) {
-    db.getUserById(id)
+    User.findById(id)
     .then((user) => {
       done(null, user);
     })
@@ -19,12 +18,12 @@ module.exports = (passport) => {
 
   passport.use(new LocalStrategy(
     function(username, password, done) {
-      db.getUser(username)
+      User.findByUserName(username)
       .then((user) => {
         if (!user) {
           return done(null, false, { message: 'Incorrect username.' });
         }
-        bcrypt.compare(password, user.user_password).then((res) => {
+        User.comparePassword(password, user.user_password).then((res) => {
           if (!res) {
             return done(null, false, { message: 'Incorrect password.' });
           }

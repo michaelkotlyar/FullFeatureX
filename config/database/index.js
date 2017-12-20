@@ -30,5 +30,5 @@ module.exports = {
   getUserByEmail: (email) => db.one(sql('getUserByEmail'), [email]),
   uniqueUserUsername: (username) => db.query(sql('uniqueUsername'), [username]),
   uniqueUserEmail: (email) => db.query(sql('uniqueEmail'), [email]),
-  registerUser: (username, email, password) => db.none(sql('createUser'), [username, email, password, 0])
+  registerUser: (username, email, password, type) => db.none(sql('createUser'), [username, email, password, type])
 };
