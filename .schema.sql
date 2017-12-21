@@ -17,16 +17,6 @@ create table users (
 );
 
 COPY users (user_name, user_password, user_email) FROM stdin;
-Harley	Monss	Uce@o.com
-Drongo	cappucino	wowowowow@o.com
-Kotlya	oinoi	grams@themansion.com
-Rebbe	bromane	traphouse@themansion.com
-Sixfigure	03910139	rollsroyce@themansion.com
-Grandtowerboy	hunnedmil	mills@themansion.com
-OneThree6	oinoi	feelins@themansion.com
-Bromane	oinoi	ghosts@themansion.com
-Borat	borat	rocketships@themansion.com
-Concrete	oinoi	60degreez@themansion.com
-Syndicate3333	oidnoi	40onthehill@themansion.com
-Kotlya	oiss	lakehouse@themansion.com
+Borat	$2a$10$JFLMr12qjfoTdVOp/INmvOCKzzs0r0KvMQQX9O4aOSnrEIC79Xvoi	borat@kazakhstan.com
+Michael	$2a$10$2st4h76DMLOhU4flJPcqA.70vWFTpaCzPJ/dKQrtMli6IWg2UaFCC	michael@michael.com
 \.
