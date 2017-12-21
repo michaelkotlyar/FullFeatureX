@@ -13,6 +13,9 @@ logs
 results
 tmp
 
+# uncomment if using for production
+# .env
+
 node_modules
 
 .idea
