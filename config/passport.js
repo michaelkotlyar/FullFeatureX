@@ -2,11 +2,11 @@ var LocalStrategy = require('passport-local').Strategy;
 var User = require('./models/user');
 
 module.exports = (passport) => {
-  passport.serializeUser( (user, done) => {
+  passport.serializeUser((user, done) => {
     done(null, user.user_id);
   });
 
-  passport.deserializeUser( (id, done) => {
+  passport.deserializeUser((id, done) => {
     User.findById(id)
     .then((user) => {
       done(null, user);
@@ -32,7 +32,7 @@ module.exports = (passport) => {
       })
       .catch((error) => {
         return done(null, false, { message:'Wrong username or password.' });
-      });;
+      });
     }
   ));
 };

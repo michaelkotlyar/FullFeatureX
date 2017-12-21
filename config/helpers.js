@@ -13,7 +13,7 @@ module.exports = {
     }
   },
   createUser: (req, res) => {
-    renderObject = { title: "Register" };
+    var renderObject = { title: 'Register' };
     User.uniqueUserUsername(req.body.username)
     .then(data => {
       if (!data[0].exists) {
