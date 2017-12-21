@@ -7,7 +7,7 @@ User.getAllUsers = () => {
   return db.getAllUsers();
 }
 
-User.findByUserName = (userName) => {
+User.findByUserName = (username) => {
   return db.getUser(username);
 }
 
@@ -27,9 +27,7 @@ User.addUser = (newUser) => {
 }
 
 User.comparePassword = (candidatePassword, hash) => {
-  bcrypt.compare(candidatePassword, hash, (err, isMatch) => {
-    if(err) throw err;
-  });
+  return bcrypt.compare(candidatePassword, hash);
 }
 
 User.validateEmail = (email) => {
