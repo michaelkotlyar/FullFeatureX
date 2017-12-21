@@ -1,4 +1,4 @@
-var db = require('./database');
+var User = require('./models/user');
 var bcrypt = require('bcryptjs');
 
 var salt = bcrypt.genSaltSync(10);
@@ -14,14 +14,14 @@ module.exports = {
   },
   createUser: (req, res) => {
     renderObject = { title: "Register" };
-    db.uniqueUserUsername(req.body.username)
+    User.uniqueUserUsername(req.body.username)
     .then(data => {
       if (!data[0].exists) {
-        db.uniqueUserEmail(req.body.email)
+        User.uniqueUserEmail(req.body.email)
         .then(data => {
           if (!data[0].exists) {
             var hash = bcrypt.hashSync(req.body.password, salt);
-            db.registerUser(req.body.username, hash, req.body.email);
+            User.addUser(req.body.username, hash, req.body.email, 0);
             res.redirect('/login');
           }
           else {
