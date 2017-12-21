@@ -1,10 +1,10 @@
 # FullFeatureX
-This is just another NodeJS Application that acts as a starter template. However, **I wouldn't officially consider it a starter template**. It still has many bugs and blank areas in it. And I have many more features I want to add to it. But since it's publically available, I may as well promote it as such.
+This is just another NodeJS Application that acts as a starter template. However, **I wouldn't officially consider it a starter template**. It still has many bugs and blank areas in it. And I have many more features I want to add to it. But since it's publicly available, I may as well promote it as such.
 
 This project is mostly made for my personal use - to learn and condition myself for NodeJS development. **I have no clue if anyone will find this useful**. If you happen to want to use this, then by all means use it! But **be warned**. It's still a work in progress and may be a bit confusing to configure, for I have not put in much thought into the whole structure of the app.
 
 ## Features
-When I wanted to create this app, I wanted to implement many things that social media websites have - mainly user authentication and media storage. This meant I would have much better knowledge of large scale apps and at the end of it, I would have a product that would only need some added context for it to go live.
+When I wanted to create this app, I wanted to implement many things that social media websites have - mainly user authentication and media storage. This meant I would have much better knowledge of large scale apps. And by the end of it, I would have a product that would only need some added context for it to go live.
 
 ### *Current* feature list 
 - Database connection
@@ -16,7 +16,7 @@ When I wanted to create this app, I wanted to implement many things that social 
 - User profile editing
 - User authentication from other sources (e.g. Facebook, Google+)
 - User media storage
-- Other things????....
+- Other things… ?
 
 ## Resources
 Some mentionable resources that I constantly configure throughout the project
