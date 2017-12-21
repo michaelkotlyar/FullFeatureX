@@ -11,7 +11,7 @@ var server = require('tiny-lr')();
 
 var paths = {
   scripts: [
-    path.join('routes', '**', '*.js')
+    path.join('config', '**', '*.js')
   ],
   styles: [
     path.join('public', 'stylesheets', 'css', '**', '*.css')
@@ -24,12 +24,12 @@ var paths = {
 
 var lrPort = 35729;
 
-const nodemonConfig = {
+var nodemonConfig = {
   script: paths.server,
   ext: 'html js css',
   ignore: ['node_modules'],
   env: {
-    NODE_ENV: 'development'
+    NODE_ENV: process.env.NODE_ENV
   }
 };
 
