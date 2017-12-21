@@ -3,8 +3,7 @@
   "version": "0.0.2",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
-    "test": "node_modules/.bin/jasmine-node spec"
+    "start": "node ./bin/www"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -34,7 +33,6 @@
     "jshint": "^2.9.5",
     "jshint-stylish": "^2.2.1",
     "run-sequence": "^2.2.0",
-    "spec": "^1.0.1",
     "tiny-lr": "^1.0.5"
   }
 }
