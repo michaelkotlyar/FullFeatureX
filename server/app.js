@@ -33,6 +33,7 @@ app.use('/vendor/jquery', express.static(path.join(__dirname, '..', '/node_modul
 app.use('/vendor/popper.js', express.static(path.join(__dirname, '..', '/node_modules/popper.js/dist')));
 app.use('/vendor/bootstrap', express.static(path.join(__dirname, '..', '/node_modules/bootstrap/dist')));
 
+//session / passport
 app.use(session({
   secret: process.env.SECRET_KEY,
   resave: true,
@@ -41,12 +42,12 @@ app.use(session({
     expires: false
   }
 }));
-
 app.use(passport.initialize());
 app.use(passport.session());
-
 app.use(require('connect-flash')());
 require('./config/passport')(passport);
+
+//routes
 require('./config/routes')(passport, app);
 
 // catch 404 and forward to error handler
