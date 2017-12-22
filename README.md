@@ -75,7 +75,6 @@ Before I add more features, I feel I must do some more research and figure out w
 ### Prerequisites
 You need a set of CLI tools to run this app. Make sure you have the [node package manager (npm)](https://nodejs.org/en/download/) installed first.
 
-####Tools
 * [npm](https://nodejs.org/en/download/)
 * [Gulp](https://www.npmjs.com/package/gulp) `npm install -g gulp`
 * [Mocha](https://www.npmjs.com/package/mocha) `npm install -g mocha`
