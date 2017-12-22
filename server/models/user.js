@@ -1,4 +1,4 @@
-var db = require('../database');
+var db = require('../config/database');
 var bcrypt = require('bcryptjs');
 
 var User = {};
