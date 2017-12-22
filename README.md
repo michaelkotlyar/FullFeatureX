@@ -6,7 +6,7 @@ This project is mostly made for my personal use - to learn and condition myself 
 ## Features
 When I wanted to create this app, I wanted to implement many things that social media websites have - mainly user authentication and media storage. This meant I would have much better knowledge of large scale apps. And by the end of it, I would have a product that would only need some added context for it to go live.
 
-### *Current* feature list 
+### *Current* feature list
 - Database connection
 - User authentication
 - Responsive layout
@@ -70,7 +70,26 @@ Before I add more features, I feel I must do some more research and figure out w
 - Find and implement optimal structure
 - Create own favicon/icons
 - Project description
-- Readme install instructions
+
+## Install
+### Prerequisites
+You need a set of CLI tools to run this app. Make sure you have the [node package manager (npm)](https://nodejs.org/en/download/) installed first.
+
+####Tools
+* [npm](https://nodejs.org/en/download/)
+* [Gulp](https://www.npmjs.com/package/gulp) `npm install -g gulp`
+* [Mocha](https://www.npmjs.com/package/mocha) `npm install -g mocha`
+* [PostgreSQL (psql)](http://postgresguide.com/setup/install.html)
+
+### Instructions
+1. Clone this repository into your desired directory
+2. `$ cd  directory-to/fullfeaturex` Go to application directory
+3. `$ npm install` Install the dependencies
+4. `$ psql` Enter PostgreSQL CLI
+5. `# create database fullfeaturex;` create your database
+6. `# \c fullfeaturex` connect to your database
+7. `# \i /full-directory-to/fullfeaturex/.schema.sql` execute the stored sql to create and populate the table
+8. `$ gulp` Run gulp in the fullfeaturex directory
 
 ## Contribution
 I personally intend for this project to be my own work. However, if there are any improvements you can suggest, feel free to contact me.
