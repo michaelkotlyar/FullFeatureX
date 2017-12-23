@@ -6,7 +6,7 @@ This project is mostly made for my personal use - to learn and condition myself 
 ## Features
 When I wanted to create this app, I wanted to implement many things that social media websites have - mainly user authentication and media storage. This meant I would have much better knowledge of large scale apps. And by the end of it, I would have a product that would only need some added context for it to go live.
 
-### *Current* feature list 
+### *Current* feature list
 - Database connection
 - User authentication
 - Responsive layout
@@ -63,14 +63,9 @@ Some mentionable resources that I constantly configure throughout the project
 - [run-sequence](https://www.npmjs.com/package/run-sequence)
 - [tiny-lr](https://www.npmjs.com/package/tiny-lr)
 
-## What is left to be done
-Before I add more features, I feel I must do some more research and figure out whether there is a better approach than how I have arranged my app. I see alot of different ways of where you put your app.js file in, what you name it, how you include your routes, configure your database, I could go on. So I must figure out if there is an objectively best way to structure this app so that it can scale with the least pain.
-
-### To do list
-- Find and implement optimal structure
+## To do list
 - Create own favicon/icons
 - Project description
-- Readme install instructions
 
 ## Contribution
 I personally intend for this project to be my own work. However, if there are any improvements you can suggest, feel free to contact me.
