@@ -26,7 +26,7 @@ app.use(sassMiddleware({
   outputStyle: 'compressed',
   indentedSyntax: true
 }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 // front end modules
 app.use('/vendor/jquery', express.static(path.join(__dirname, '..', 'node_modules', 'jquery', 'dist')));
