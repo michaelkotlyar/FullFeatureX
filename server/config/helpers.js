@@ -6,7 +6,7 @@ var salt = bcrypt.genSaltSync(10);
 module.exports = {
   loggedIn: (req, res, next) => {
     if (!req.user) {
-      res.redirect('/login');
+      res.redirect('/users/login');
     }
     else {
       next();
@@ -22,7 +22,7 @@ module.exports = {
           if (!data[0].exists) {
             var hash = bcrypt.hashSync(req.body.password, salt);
             User.addUser(req.body.username, hash, req.body.email, 0);
-            res.redirect('/login');
+            res.redirect('/users/login');
           }
           else {
             renderObject.warning = 'This email is already taken.';

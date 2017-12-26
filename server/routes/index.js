@@ -11,20 +11,6 @@ router.get('/', helper.loggedIn, function(req, res, next) {
   res.render('index', renderObject);
 });
 
-router.get('/users', function(req, res, next) {
-  User.getAllUsers()
-    .then(users => {
-      var renderObject = { title: 'Users', users: users };
-      if (req.user) {
-        renderObject.username = req.user.user_name;
-      }
-      res.render('users', renderObject);
-    })
-    .catch(error => {
-      res.render('error', { error: error });
-    });
-});
-
 router.get('/graphs', helper.loggedIn, function(req, res, next) {
   var renderObject = { title: 'Graphs' };
   if (req.user) {
@@ -35,7 +21,7 @@ router.get('/graphs', helper.loggedIn, function(req, res, next) {
 
 router.get('/logout', function(req, res) {
   req.logout();
-  res.redirect('/login');
+  res.redirect('/users/login');
 });
 
 router.get('/register', function(req, res, next) {

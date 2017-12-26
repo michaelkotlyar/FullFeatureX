@@ -8,7 +8,7 @@ chai.use(chaiHttp);
 describe('Logging In', function() {
   it('should log Borat into the app with the correct password', function(done) {
     chai.request(server)
-      .post('/login')
+      .post('/users/login')
       .send({
         'username': 'Borat',
         'password': 'borat'
@@ -21,7 +21,7 @@ describe('Logging In', function() {
   });
   it('should not log Borat into the app with the wrong password', function(done) {
     chai.request(server)
-      .post('/login')
+      .post('/users/login')
       .send({
         'username': 'Borat',
         'password': 'notborat'

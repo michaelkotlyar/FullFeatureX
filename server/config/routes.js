@@ -6,9 +6,9 @@ var helper = require('../config/helpers');
 module.exports = (passport, app) => {
 
   var index = require('../routes/index');
-  var login = require('../routes/login')(passport);
+  var users = require('../routes/users')(passport);
 
   app.use('/', index);
-  app.use('/login', login);
+  app.use('/users', users);
 
 }
