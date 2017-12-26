@@ -3,24 +3,18 @@ var router = express.Router();
 var helper = require('../config/helpers');
 
 router.get('/', helper.loggedIn, function(req, res, next) {
-  var renderObject = { title: 'Dashboard', bodyClasses: ['dashboard'] };
-  if (req.user) {
-    renderObject.username = req.user.user_name;
-  }
+  var renderObject = helper.renderObject(req, {
+    title: 'Dashboard',
+    bodyClasses: ['dashboard']
+  });
   res.render('index', renderObject);
 });
 
 router.get('/graphs', helper.loggedIn, function(req, res, next) {
-  var renderObject = { title: 'Graphs' };
-  if (req.user) {
-    renderObject.username = req.user.user_name;
-  }
+  var renderObject = helper.renderObject(req, {
+    title: 'Graphs'
+  });
   res.render('dashboard', renderObject);
-});
-
-router.get('/logout', function(req, res) {
-  req.logout();
-  res.redirect('/users/login');
 });
 
 router.post('/profile', helper.loggedIn, function(req, res, next) {

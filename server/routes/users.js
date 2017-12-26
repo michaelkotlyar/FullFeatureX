@@ -8,10 +8,10 @@ module.exports = (passport) => {
   router.get('/', function(req, res, next) {
     User.getAllUsers()
       .then(users => {
-        var renderObject = { title: 'Users', users: users };
-        if (req.user) {
-          renderObject.username = req.user.user_name;
-        }
+        var renderObject = helper.renderObject(req, {
+          title: 'Users',
+          users: users
+        });
         res.render('users', renderObject);
       })
       .catch(error => {
@@ -20,7 +20,11 @@ module.exports = (passport) => {
   });
 
   router.get('/register', function(req, res, next) {
-    res.render('register', { title: 'Register' });
+    var renderObject = helper.renderObject(req, {
+      title: 'Register',
+      users: users
+    });
+    res.render('register', renderObject);
   });
 
   router.post('/register', function(req, res, next) {
@@ -28,17 +32,16 @@ module.exports = (passport) => {
   });
 
   router.get('/profile', helper.loggedIn, function(req, res, next) {
-    var renderObject = { title: 'Profile' };
-    if (req.user) {
-      renderObject.username = req.user.user_name;
-      renderObject.email = req.user.user_email;
-      if (req.user.user_image) { renderObject.image = req.user.user_image; }
-    }
+    var renderObject = helper.renderObject(req, {
+      title: 'Profile'
+    });
     res.render('profile', renderObject);
   });
 
   router.get('/login', function(req, res, next) {
-    var renderObject = { title: 'Login' };
+    var renderObject = helper.renderObject(req, {
+      title: 'Login'
+    });
     var warningMsg = req.flash('error');
     if (warningMsg.length !== 0) { renderObject.warning = warningMsg; }
     res.render('login', renderObject);
@@ -49,6 +52,11 @@ module.exports = (passport) => {
     failureRedirect: '/users/login',
     failureFlash: true
   }));
+
+  router.get('/logout', function(req, res) {
+    req.logout();
+    res.redirect('/users/login');
+  });
 
   return router;
 };

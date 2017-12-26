@@ -1,9 +1,21 @@
 var User = require('../models/user');
 var bcrypt = require('bcryptjs');
+var extend = require('util')._extend;
 
 var salt = bcrypt.genSaltSync(10);
 
 module.exports = {
+  renderObject: (req, extra = {}) => {
+    var renderObject = {};
+    if (req.user) {
+      renderObject.loggedIn = true;
+      renderObject.username = req.user.user_name;
+      renderObject.email = req.user.user_email;
+      if (req.user.user_image) { renderObject.image = req.user.user_image; }
+    }
+    extend(renderObject, extra);
+    return renderObject;
+  },
   loggedIn: (req, res, next) => {
     if (!req.user) {
       res.redirect('/users/login');
