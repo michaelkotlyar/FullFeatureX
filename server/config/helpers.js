@@ -21,21 +21,24 @@ module.exports = {
       next();
     }
   },
+  adminAccess: (req, res, next) => {
+    if (req.user) {
+      if (req.user.user_type == 1) {
+        console.log("Admin oh boy!!!!");
+        next();
+      }
+    }
+    res.redirect('/users/login');
+  },
   createUser: (req, res) => {
     var renderObject = { title: 'Register' };
     User.uniqueUserUsername(req.body.username)
     .then(data => {
-      console.log('exists?... ' + req.body.username);
-      console.log(data);
       if (!data.exists) {
         User.uniqueUserEmail(req.body.email)
         .then(data => {
-          console.log('exists?... ' + req.body.email);
-          console.log(data);
           if (!data.exists) {
-            console.log('ting 1');
             User.addUser(req.body.username, req.body.password, req.body.email, 0);
-            console.log('ting 2');
             res.redirect('/users/login');
           }
           else {
