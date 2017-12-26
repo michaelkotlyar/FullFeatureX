@@ -63,11 +63,7 @@ Some mentionable resources that I constantly configure throughout the project
 - [run-sequence](https://www.npmjs.com/package/run-sequence)
 - [tiny-lr](https://www.npmjs.com/package/tiny-lr)
 
-## What is left to be done
-Before I add more features, I feel I must do some more research and figure out whether there is a better approach than how I have arranged my app. I see alot of different ways of where you put your app.js file in, what you name it, how you include your routes, configure your database, I could go on. So I must figure out if there is an objectively best way to structure this app so that it can scale with the least pain.
-
-### To do list
-- Find and implement optimal structure
+## To do list
 - Create own favicon/icons
 - Project description
 

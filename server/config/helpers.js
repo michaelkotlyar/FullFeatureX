@@ -1,4 +1,4 @@
-var User = require('./models/user');
+var User = require('../models/user');
 var bcrypt = require('bcryptjs');
 
 var salt = bcrypt.genSaltSync(10);
