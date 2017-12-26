@@ -15,15 +15,15 @@ User.findById = (id) => {
   return db.one('SELECT * FROM users WHERE user_id = $1', [id]);
 };
 
-User.create = (user) => {
-  return db.none('INSERT INTO users(user_name, user_password, user_email, user_type) VALUES($1, $2, $3, $4)', [user.username, user.email, user.password, user.type]);
+User.create = (username, password, email, type) => {
+  return db.none('INSERT INTO users(user_name, user_password, user_email, user_type) VALUES($1, $2, $3, $4)', [username, password, email, type]);
 };
 
-User.addUser = (newUser) => {
+User.addUser = (username, password, email, type = 0) => {
   var salt = bcrypt.genSaltSync(10);
-  var hash = bcrypt.hashSync(newUser.password, salt);
+  var hash = bcrypt.hashSync(password, salt);
 
-  return User.create(newUser.username, hash, newUser.email, newUser.type);
+  return User.create(username, hash, email, type);
 };
 
 User.comparePassword = (candidatePassword, hash) => {
@@ -35,12 +35,12 @@ User.validateEmail = (email) => {
   return re.test(email);
 };
 
-User.uniqueEmail = (email) => {
-  return db.one('SELECT EXISTS (SELECT * FROM users WHERE email = $1)', [email]);
+User.uniqueUserEmail = (email) => {
+  return db.one('SELECT EXISTS (SELECT * FROM users WHERE user_email = $1)', [email]);
 };
 
-User.uniqueUsername = (username) => {
-  return db.one('SELECT EXISTS (SELECT * FROM users WHERE username = $1)', [username]);
+User.uniqueUserUsername = (username) => {
+  return db.one('SELECT EXISTS (SELECT * FROM users WHERE user_name = $1)', [username]);
 };
 
 module.exports = User;

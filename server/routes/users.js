@@ -21,8 +21,7 @@ module.exports = (passport) => {
 
   router.get('/register', function(req, res, next) {
     var renderObject = helper.renderObject(req, {
-      title: 'Register',
-      users: users
+      title: 'Register'
     });
     res.render('register', renderObject);
   });

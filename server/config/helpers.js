@@ -1,8 +1,5 @@
 var User = require('../models/user');
-var bcrypt = require('bcryptjs');
 var extend = require('util')._extend;
-
-var salt = bcrypt.genSaltSync(10);
 
 module.exports = {
   renderObject: (req, extra = {}) => {
@@ -28,12 +25,17 @@ module.exports = {
     var renderObject = { title: 'Register' };
     User.uniqueUserUsername(req.body.username)
     .then(data => {
-      if (!data[0].exists) {
+      console.log('exists?... ' + req.body.username);
+      console.log(data);
+      if (!data.exists) {
         User.uniqueUserEmail(req.body.email)
         .then(data => {
-          if (!data[0].exists) {
-            var hash = bcrypt.hashSync(req.body.password, salt);
-            User.addUser(req.body.username, hash, req.body.email, 0);
+          console.log('exists?... ' + req.body.email);
+          console.log(data);
+          if (!data.exists) {
+            console.log('ting 1');
+            User.addUser(req.body.username, req.body.password, req.body.email, 0);
+            console.log('ting 2');
             res.redirect('/users/login');
           }
           else {

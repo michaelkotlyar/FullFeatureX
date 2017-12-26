@@ -12,7 +12,7 @@ block content
             strong Something went wrong… 
             br
             span #{warning}
-        form.register(action="/register" method="post")
+        form.register(action="/users/register" method="post")
           .form-group
             label(for="registerUsername") Username
             input(id="registerUsername" class="form-control" name="username" type="username" placeholder="Username")
