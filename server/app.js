@@ -33,7 +33,7 @@ app.use('/vendor/jquery', express.static(path.join(__dirname, '..', 'node_module
 app.use('/vendor/popper.js', express.static(path.join(__dirname, '..', 'node_modules', 'popper.js', 'dist')));
 app.use('/vendor/bootstrap', express.static(path.join(__dirname, '..', 'node_modules', 'bootstrap', 'dist')));
 
-//session / passport
+// session
 app.use(session({
   secret: process.env.SECRET_KEY,
   resave: true,
@@ -42,6 +42,8 @@ app.use(session({
     expires: false
   }
 }));
+
+//  passport
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(require('connect-flash')());
