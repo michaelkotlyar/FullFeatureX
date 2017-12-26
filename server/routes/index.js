@@ -17,8 +17,4 @@ router.get('/graphs', helper.loggedIn, function(req, res, next) {
   res.render('dashboard', renderObject);
 });
 
-router.post('/profile', helper.loggedIn, function(req, res, next) {
-  helper.modifyUser(req, res);
-});
-
 module.exports = router;
