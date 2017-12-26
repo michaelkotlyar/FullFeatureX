@@ -22,13 +22,12 @@ module.exports = {
     }
   },
   adminAccess: (req, res, next) => {
-    if (req.user) {
-      if (req.user.user_type == 1) {
-        console.log("Admin oh boy!!!!");
-        next();
-      }
+    if (req.user && req.user.user_type == 1) {
+      next();
     }
-    res.redirect('/users/login');
+    else {
+      res.redirect('/users/login');
+    }
   },
   createUser: (req, res) => {
     var renderObject = { title: 'Register' };
