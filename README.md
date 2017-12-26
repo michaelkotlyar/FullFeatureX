@@ -77,7 +77,7 @@ You need a set of CLI tools to run this app. Make sure you have the [node packag
 * [PostgreSQL (psql)](http://postgresguide.com/setup/install.html)
 
 ### Instructions
-1. Clone this repository into your desired directory
+1. `$ git clone https://github.com/uzimike/FullFeatureX.git` Clone this repository into your desired directory
 2. `$ cd  directory-to/fullfeaturex` Go to application directory
 3. `$ npm install` Install the dependencies
 4. `$ psql` Enter PostgreSQL CLI
@@ -85,6 +85,9 @@ You need a set of CLI tools to run this app. Make sure you have the [node packag
 6. `# \c fullfeaturex` connect to your database
 7. `# \i /full-directory-to/fullfeaturex/.schema.sql` execute the stored sql to create and populate the table
 8. `$ gulp` Run gulp in the fullfeaturex directory
+
+### Notes
+.schema.sql creates two users, Michael and Borat. Their passwords are their respective usernames in lowercase.
 
 ## Contribution
 I personally intend for this project to be my own work. However, if there are any improvements you can suggest, feel free to contact me.

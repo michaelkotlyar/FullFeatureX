@@ -16,6 +16,7 @@ create table users (
   user_type integer references user_types(type_code) default 0
 );
 
+-- Create users (Username: Borat, Password: borat) (Username: Michael, Password: michael)
 COPY users (user_name, user_password, user_email) FROM stdin;
 Borat	$2a$10$JFLMr12qjfoTdVOp/INmvOCKzzs0r0KvMQQX9O4aOSnrEIC79Xvoi	borat@kazakhstan.com
 Michael	$2a$10$2st4h76DMLOhU4flJPcqA.70vWFTpaCzPJ/dKQrtMli6IWg2UaFCC	michael@michael.com
