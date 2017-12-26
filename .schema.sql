@@ -21,3 +21,7 @@ COPY users (user_name, user_password, user_email) FROM stdin;
 Borat	$2a$10$JFLMr12qjfoTdVOp/INmvOCKzzs0r0KvMQQX9O4aOSnrEIC79Xvoi	borat@kazakhstan.com
 Michael	$2a$10$2st4h76DMLOhU4flJPcqA.70vWFTpaCzPJ/dKQrtMli6IWg2UaFCC	michael@michael.com
 \.
+
+-- Add and admin account
+INSERT INTO users(user_name, user_password, user_email, user_type)
+VALUES('Admin', '$2a$10$ulPQqSOKLDFf.L58H1SIGuo3giVkvq2P3YlvL8Y2kG93IUxlmEsg2', 'admin@admin.com', 1);
