@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var User = require('../models/user');
 var helper = require('../config/helpers');
 
 router.get('/', helper.loggedIn, function(req, res, next) {
@@ -22,24 +21,6 @@ router.get('/graphs', helper.loggedIn, function(req, res, next) {
 router.get('/logout', function(req, res) {
   req.logout();
   res.redirect('/users/login');
-});
-
-router.get('/register', function(req, res, next) {
-  res.render('register', { title: 'Register' });
-});
-
-router.post('/register', function(req, res, next) {
-  helper.createUser(req, res);
-});
-
-router.get('/profile', helper.loggedIn, function(req, res, next) {
-  var renderObject = { title: 'Profile' };
-  if (req.user) {
-    renderObject.username = req.user.user_name;
-    renderObject.email = req.user.user_email;
-    if (req.user.user_image) { renderObject.image = req.user.user_image; }
-  }
-  res.render('profile', renderObject);
 });
 
 router.post('/profile', helper.loggedIn, function(req, res, next) {

@@ -6,8 +6,8 @@ mixin list-item(url, label)
 +list-item("/help", "Help")
 li.seperator
 if username
-  +list-item("/profile", "Logged in as " + username)
-  +list-item("/logout", "Logout")
+  +list-item("/users/profile", "Logged in as " + username)
+  +list-item("/users/logout", "Logout")
 else
   +list-item("/users/login", "Login")
-  +list-item("/register", "Register")
+  +list-item("/users/register", "Register")

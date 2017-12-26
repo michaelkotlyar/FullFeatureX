@@ -19,6 +19,24 @@ module.exports = (passport) => {
       });
   });
 
+  router.get('/register', function(req, res, next) {
+    res.render('register', { title: 'Register' });
+  });
+
+  router.post('/register', function(req, res, next) {
+    helper.createUser(req, res);
+  });
+
+  router.get('/profile', helper.loggedIn, function(req, res, next) {
+    var renderObject = { title: 'Profile' };
+    if (req.user) {
+      renderObject.username = req.user.user_name;
+      renderObject.email = req.user.user_email;
+      if (req.user.user_image) { renderObject.image = req.user.user_image; }
+    }
+    res.render('profile', renderObject);
+  });
+
   router.get('/login', function(req, res, next) {
     var renderObject = { title: 'Login' };
     var warningMsg = req.flash('error');
