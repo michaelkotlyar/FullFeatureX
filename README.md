@@ -87,7 +87,7 @@ You need a set of CLI tools to run this app. Make sure you have the [node packag
 8. `$ gulp` Run gulp in the fullfeaturex directory
 
 ### Notes
-.schema.sql creates two users, Michael and Borat. Their passwords are their respective usernames in lowercase.
+.schema.sql creates three users, Michael and Borat. Their passwords are their respective usernames in lowercase. The third user, Admin (password: admin) has an admin user type.
 
 ## Contribution
 I personally intend for this project to be my own work. However, if there are any improvements you can suggest, feel free to contact me.
