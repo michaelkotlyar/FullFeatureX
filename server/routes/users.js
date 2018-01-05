@@ -32,7 +32,16 @@ module.exports = (passport) => {
 
   router.get('/profile', helper.loggedIn, function(req, res, next) {
     var renderObject = helper.renderObject(req, {
-      title: 'Profile'
+      title: 'Profile',
+      bodyClasses: ['profile']
+    });
+    res.render('profile', renderObject);
+  });
+
+  router.post('/profile', helper.loggedIn, helper.modifyUser, function(req, res, next) {
+    var renderObject = helper.renderObject(req, {
+      title: 'Profile',
+      bodyClasses: ['profile']
     });
     res.render('profile', renderObject);
   });

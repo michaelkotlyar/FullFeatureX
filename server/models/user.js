@@ -1,5 +1,6 @@
 var db = require('../config/database');
 var bcrypt = require('bcryptjs');
+var promise = require('promise');
 
 var User = {};
 
@@ -42,5 +43,21 @@ User.uniqueUserEmail = (email) => {
 User.uniqueUserUsername = (username) => {
   return db.one('SELECT EXISTS (SELECT * FROM users WHERE user_name = $1)', [username]);
 };
+
+User.modifyUser = (user) => {
+  return db.tx(t => {
+    var queries = [];
+    if (user.user_name) {
+      queries.push(t.none('UPDATE users SET user_name = $1 WHERE user_id = $2', [user.user_name, user.id]));
+    }
+    if (user.user_email) {
+      queries.push(t.none('UPDATE users SET user_email = $1 WHERE user_id = $2', [user.user_email, user.id]));
+    }
+    if (user.user_image) {
+      queries.push(t.none('UPDATE users SET user_image = $1 WHERE user_id = $2', [user.user_image, user.id]));
+    }
+    return promise.all(queries);
+  });
+}
 
 module.exports = User;

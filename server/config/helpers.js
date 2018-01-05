@@ -58,10 +58,29 @@ module.exports = {
       console.log('error: ' + error);
     });
   },
-  modifyUser: (req, res) => {
+  modifyUser: (req, res, next) => {
     var changeUsername = false, changeEmail = false, changeImage = false;
-    if (req.username !== req.body.username && req.username !== '') changeUsername = true;
-    if (req.email !== req.body.email && req.email !== '') changeEmail = true;
-    if (req.image) changeImage = true;
+    var user = {
+      id: req.user.user_id
+    };
+    if (req.username !== req.body.username && req.username !== '') {
+      changeUsername = true;
+      user.user_name = req.body.username;
+    }
+    if (req.email !== req.body.email && req.email !== '') {
+      changeEmail = true;
+      user.user_email = req.body.email;
+    }
+    if (req.image) {
+      changeImage = true;
+      user.user_image = req.body.image;
+    }
+    User.modifyUser(user)
+    .then(() => {
+      next();
+    })
+    .catch(error => {
+      console.log('error: ' + error);
+    });
   }
 };
