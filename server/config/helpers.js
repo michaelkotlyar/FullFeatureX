@@ -75,12 +75,6 @@ module.exports = {
       changeImage = true;
       user.user_image = req.body.image;
     }
-    User.modifyUser(user)
-    .then(() => {
-      next();
-    })
-    .catch(error => {
-      console.log('error: ' + error);
-    });
+    return User.modifyUser(user);
   }
 };
