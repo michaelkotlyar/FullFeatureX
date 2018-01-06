@@ -1,6 +1,6 @@
 var chai = require('chai');
 var chaiHttp = require('chai-http');
-var server = require('../app');
+var server = require('../server/app');
 var should = chai.should();
 
 chai.use(chaiHttp);
@@ -19,7 +19,7 @@ describe('Logging In', function() {
         done();
       });
   });
-  it('should not log Borat into the app with the wrong password', function(done) {
+  it('should fail to log Borat into the app with the wrong password', function(done) {
     chai.request(server)
       .post('/users/login')
       .send({
