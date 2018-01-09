@@ -4,22 +4,20 @@ This is just another NodeJS Application that acts as a starter template. However
 This project is mostly made for my personal use - to learn and condition myself for NodeJS development. **I have no clue if anyone will find this useful**. If you happen to want to use this, then by all means use it! But **be warned**. It's still a work in progress and may be a bit confusing to configure, for I have not put in much thought into the whole structure of the app.
 
 ## Features
-When I wanted to create this app, I wanted to implement many things that social media websites have - mainly user authentication and media storage. This meant I would have much better knowledge of large scale apps. And by the end of it, I would have a product that would only need some added context for it to go live.
-
 ### *Current* feature list
 - Database connection
 - User authentication
 - Responsive layout
 - Unit testing
+- User profile editing
 
 ### *Future* feature list
-- User profile editing
 - User authentication from other sources (e.g. Facebook, Google+)
 - User media storage
-- Other things… ?
+- Things I haven't thought of yet
 
 ## Resources
-Some mentionable resources that I constantly configure throughout the project
+Mentionable resources that I configure throughout the project
 
 ### Frontend
 * **[Bootstrap 4](https://getbootstrap.com)** - Layout and base styling
@@ -65,7 +63,8 @@ Some mentionable resources that I constantly configure throughout the project
 
 ## To do list
 - Create own favicon/icons
-- Project description
+- User profile image
+- MORE TESTS!
 
 ## Install
 ### Prerequisites
