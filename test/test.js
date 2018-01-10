@@ -32,4 +32,17 @@ describe('Logging In', function() {
         done();
       });
   });
+  it('should log in the admin account', function(done) {
+    chai.request(server)
+      .post('/users/login')
+      .send({
+        'username': 'Admin',
+        'password': 'admin'
+      })
+      .end(function(err, res) {
+        res.status.should.equal(200);
+        res.redirects.length.should.equal(2);
+        done();
+      });
+  });
 });
