@@ -82,8 +82,12 @@ You need a set of CLI tools to run this app. Make sure you have the [node packag
 4. `$ psql` Enter PostgreSQL CLI
 5. `# create database fullfeaturex;` create your database
 6. `# \c fullfeaturex` connect to your database
-7. `# \i /full-directory-to/fullfeaturex/.schema.sql` execute the stored sql to create and populate the table
-8. `$ gulp` Run gulp in the fullfeaturex directory
+7. `# \i /full-directory-to/fullfeaturex/database-presets/development.sql` execute the development preset sql to create and populate the table
+8. `# create database fullfeaturex_test;` create your test database
+9. `# \c fullfeaturex_test` connect to your test database
+10. `# \i /full-directory-to/fullfeaturex/database-presets/test.sql` execute the test preset sql to create and populate the table
+11. `# \q` Exit PostgreSQL CLI
+12. `$ gulp` Run gulp in the fullfeaturex directory
 
 ### Notes
 .schema.sql creates three users, Michael and Borat. Their passwords are their respective usernames in lowercase. The third user, Admin (password: admin) has an admin user type.
