@@ -65,31 +65,62 @@ Mentionable resources that I configure throughout the project
 - User profile image
 - MORE TESTS!
 
-## Install
+## Getting Started
 ### Prerequisites
-You need a set of CLI tools to run this app. Make sure you have the [node package manager (npm)](https://nodejs.org/en/download/) installed first.
+You need a set of CLI tools to run this app. Make sure you have [Node Package Manager (npm)](https://nodejs.org/en/download/) installed first.
 
 * [npm](https://nodejs.org/en/download/)
 * [Gulp](https://www.npmjs.com/package/gulp) `npm install -g gulp`
 * [Mocha](https://www.npmjs.com/package/mocha) `npm install -g mocha`
 * [PostgreSQL (psql)](http://postgresguide.com/setup/install.html)
 
-### Instructions
-1. `$ git clone https://github.com/uzimike/FullFeatureX.git` Clone this repository into your desired directory
-2. `$ cd  directory-to/fullfeaturex` Go to application directory
-3. `$ npm install` Install the dependencies
-4. `$ psql` Enter PostgreSQL CLI
-5. `# create database fullfeaturex;` create your database
-6. `# \c fullfeaturex` connect to your database
-7. `# \i /full-directory-to/fullfeaturex/database-presets/development.sql` execute the development preset sql to create and populate the table
-8. `# create database fullfeaturex_test;` create your test database
-9. `# \c fullfeaturex_test` connect to your test database
-10. `# \i /full-directory-to/fullfeaturex/database-presets/test.sql` execute the test preset sql to create and populate the table
-11. `# \q` Exit PostgreSQL CLI
-12. `$ gulp` Run gulp in the fullfeaturex directory
+### Installation
+1. Clone this repository into your desired directory  
+	`$ git clone https://github.com/uzimike/FullFeatureX.git`
+
+2. Go to application directory  
+   `$ cd  directory-to/fullfeaturex`
+
+3. Install the dependencies  
+   `$ npm install`
+
+4. Enter PostgreSQL CLI  
+   `$ psql`
+
+5. Create your database  
+   `# create database fullfeaturex;`
+
+6. Connect to your database  
+   `# \c fullfeaturex`
+
+7. Execute the development preset sql to create and populate the table  
+  `# \i /full-directory-to/fullfeaturex/database-presets/development.sql`
+
+8. Create your test database  
+   `# create database fullfeaturex_test;`
+
+9. Connect to your test database  
+   `# \c fullfeaturex_test`
+
+10. Execute the test preset sql to create and populate the table  
+   `# \i /full-directory-to/fullfeaturex/database-presets/test.sql`
+
+11. Exit PostgreSQL CLI  
+   `# \q`
+
+12. Run gulp in the fullfeaturex directory  
+   `$ gulp`
+
+## Testing
+The testing side of this project is somewhat a bit of a wasteland. That being said, there are currently a few tests written and set up. To run the tests, all you have to do is run `npm test`.
+
+The tests are currently stored in `fullfeaturex/test/test.js`. Have a look at [mocha](https://mochajs.org/) and [chai](http://chaijs.com/) to see how to use this.
 
 ### Notes
-.schema.sql creates three users, Michael and Borat. Their passwords are their respective usernames in lowercase. The third user, Admin (password: admin) has an admin user type.
+The passwords of the preset users are their respective usernames in lowercase (e.g. User: Borat  Password: borat)
 
 ## Contribution
-I personally intend for this project to be my own work. However, if there are any improvements you can suggest, feel free to contact me.
+I personally intend for this project to be my own work. However, if there are any improvements you'd like to suggest, you're more than welcome to contact me about it. However, it doesn't mean I owe you anything 😤.
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
