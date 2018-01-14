@@ -116,7 +116,7 @@ The testing side of this project is somewhat a bit of a wasteland. That being sa
 
 The tests are currently stored in `fullfeaturex/test/test.js`. Have a look at [mocha](https://mochajs.org/) and [chai](http://chaijs.com/) to see how to use this.
 
-### Notes
+## Note
 The passwords of the preset users are their respective usernames in lowercase (e.g. User: Borat  Password: borat)
 
 ## Contribution
