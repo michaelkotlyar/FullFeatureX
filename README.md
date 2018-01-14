@@ -116,11 +116,13 @@ The testing side of this project is somewhat a bit of a wasteland. That being sa
 
 The tests are currently stored in `fullfeaturex/test/test.js`. Have a look at [mocha](https://mochajs.org/) and [chai](http://chaijs.com/) to see how to use this.
 
-## Note
+## Notes
 The passwords of the preset users are their respective usernames in lowercase (e.g. User: Borat  Password: borat)
 
 ## Contribution
-I personally intend for this project to be my own work. However, if there are any improvements you'd like to suggest, you're more than welcome to contact me about it. However, it doesn't mean I owe you anything 😤.
+I personally intend for this project to be my own work. However, if there are any improvements you'd like to suggest, you're more than welcome to contact me about it.
+
+It doesn't mean I owe you anything, though 😤
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
