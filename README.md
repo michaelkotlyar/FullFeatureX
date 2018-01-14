@@ -53,7 +53,6 @@ Mentionable resources that I configure throughout the project
 - [gulp-jshint](https://www.npmjs.com/package/gulp-jshint)
 - [gulp-nodemon](https://www.npmjs.com/package/gulp-nodemon)
 - [gulp-plumber](https://www.npmjs.com/package/gulp-plumber)
-- [jasmine-node](https://www.npmjs.com/package/jasmine-node)
 - [jscs](https://www.npmjs.com/package/jscs)
 - [jshint](https://www.npmjs.com/package/jshint)
 - [jshint-stylish](https://www.npmjs.com/package/jshint-stylish)
