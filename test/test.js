@@ -46,3 +46,12 @@ describe('Logging In', function() {
       });
   });
 });
+
+// describe('', function() {
+//   it('', function(done) {
+//     chai.request(server)
+//     .end(function(err, res) {
+//       done();
+//     });
+//   })
+// });
