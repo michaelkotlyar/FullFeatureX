@@ -14,6 +14,7 @@ describe('Logging In', function() {
         'password': 'borat'
       })
       .end(function(err, res) {
+        should.not.exist(err);
         res.status.should.equal(200);
         res.redirects.length.should.equal(2);
         done();
@@ -27,6 +28,7 @@ describe('Logging In', function() {
         'password': 'notborat'
       })
       .end(function(err, res) {
+        should.not.exist(err);
         res.status.should.equal(200);
         res.redirects.length.should.equal(1);
         done();
@@ -40,11 +42,24 @@ describe('Logging In', function() {
         'password': 'admin'
       })
       .end(function(err, res) {
+        should.not.exist(err);
         res.status.should.equal(200);
         res.redirects.length.should.equal(2);
         done();
       });
   });
+});
+
+describe('Users', function() {
+  it('should display users', function(done) {
+    chai.request(server)
+      .get('/users')
+      .end(function(err, res) {
+        should.not.exist(err);
+        res.status.should.equal(200);
+        done();
+      });
+  })
 });
 
 // describe('', function() {
