@@ -5,8 +5,20 @@ var should = chai.should();
 
 chai.use(chaiHttp);
 
-describe('Logging In', function() {
-  it('should log Borat into the app with the correct password', function(done) {
+describe('GET /users', function() {
+  it('display users', function(done) {
+    chai.request(server)
+      .get('/users')
+      .end(function(err, res) {
+        should.not.exist(err);
+        res.status.should.equal(200);
+        done();
+      });
+  })
+});
+
+describe('POST /users/login', function() {
+  it('log Borat into the app with the correct password', function(done) {
     chai.request(server)
       .post('/users/login')
       .send({
@@ -20,7 +32,7 @@ describe('Logging In', function() {
         done();
       });
   });
-  it('should fail to log Borat into the app with the wrong password', function(done) {
+  it('fail to log Borat into the app with the wrong password', function(done) {
     chai.request(server)
       .post('/users/login')
       .send({
@@ -34,7 +46,7 @@ describe('Logging In', function() {
         done();
       });
   });
-  it('should log in the admin account', function(done) {
+  it('log in the admin account', function(done) {
     chai.request(server)
       .post('/users/login')
       .send({
@@ -48,18 +60,6 @@ describe('Logging In', function() {
         done();
       });
   });
-});
-
-describe('Users', function() {
-  it('should display users', function(done) {
-    chai.request(server)
-      .get('/users')
-      .end(function(err, res) {
-        should.not.exist(err);
-        res.status.should.equal(200);
-        done();
-      });
-  })
 });
 
 // describe('', function() {
