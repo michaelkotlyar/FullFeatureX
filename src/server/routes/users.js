@@ -1,21 +1,22 @@
 var express = require('express');
 var router = express.Router();
-var User = require('../models/user');
+var User = require('../controllers/users');
 var helper = require('../config/helpers');
 
 module.exports = (passport) => {
 
   router.get('/', function(req, res, next) {
-    User.getAllUsers()
+    User.getAll()
       .then(users => {
         var renderObject = helper.renderObject(req, {
           title: 'Users',
           users: users
         });
         res.render('users', renderObject);
+        return users;
       })
       .catch(error => {
-        res.render('error', { error: error });
+        res.status(500).send({ error: 'Something failed!' });
       });
   });
 
@@ -27,7 +28,13 @@ module.exports = (passport) => {
   });
 
   router.post('/register', function(req, res, next) {
-    helper.createUser(req, res);
+    User.create(req)
+      .then(() => {
+        res.redirect('/user/login');
+      })
+      .catch(error => {
+        res.status(500).send({ error: 'Something failed!' });
+      });
   });
 
   router.get('/profile', helper.loggedIn, function(req, res, next) {
@@ -39,7 +46,7 @@ module.exports = (passport) => {
   });
 
   router.post('/profile', helper.loggedIn, function(req, res, next) {
-    helper.modifyUser(req, res, next)
+    User.edit(req, res, next)
       .then(() => {
         res.redirect('/users/profile');
       });

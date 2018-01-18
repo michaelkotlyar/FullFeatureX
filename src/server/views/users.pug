@@ -1,0 +1,19 @@
+extends dashboard
+
+block content
+  table.table.table-hover.table-sm.table-responsive-xl.table-striped.table-bordered
+    thead.thead-light
+      tr
+        th(scope="col") id
+        th(scope="col") username
+        th(scope="col") hash
+        th(scope="col") email
+        th(scope="col") type
+      tbody
+        for user in users
+          tr
+            th(scope="row") #{user.id}
+            td #{user.username}
+            td #{user.hash}
+            td #{user.email}
+            td #{user.type}

@@ -19,7 +19,7 @@ var paths = {
   views: [
     path.join('views', '**', '*.pug')
   ],
-  server: 'server/bin/www'
+  server: 'src/server/server.js'
 };
 
 var lrPort = 35729;
