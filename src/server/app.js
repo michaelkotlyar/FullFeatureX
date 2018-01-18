@@ -16,23 +16,23 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-app.use(favicon(path.join(__dirname, '..', 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, '..', 'client', 'favicon.ico')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(sassMiddleware({
-  root: path.join(__dirname, '..', 'public', 'stylesheets'),
+  root: path.join(__dirname, '..', 'client', 'stylesheets'),
   src: 'sass',
   dest: 'css',
   prefix: '/stylesheets/css',
   outputStyle: 'compressed',
   indentedSyntax: true
 }));
-app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use(express.static(path.join(__dirname, '..', 'client')));
 
 // front end modules
-app.use('/vendor/jquery', express.static(path.join(__dirname, '..', 'node_modules', 'jquery', 'dist')));
-app.use('/vendor/popper.js', express.static(path.join(__dirname, '..', 'node_modules', 'popper.js', 'dist')));
-app.use('/vendor/bootstrap', express.static(path.join(__dirname, '..', 'node_modules', 'bootstrap', 'dist')));
+app.use('/vendor/jquery', express.static(path.join(__dirname, '..', '..', 'node_modules', 'jquery', 'dist')));
+app.use('/vendor/popper.js', express.static(path.join(__dirname, '..', '..', 'node_modules', 'popper.js', 'dist')));
+app.use('/vendor/bootstrap', express.static(path.join(__dirname, '..', '..', 'node_modules', 'bootstrap', 'dist')));
 
 // session
 app.use(session({
