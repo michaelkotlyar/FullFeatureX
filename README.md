@@ -1,30 +1,14 @@
 # FullFeatureX
-This is just another NodeJS Application that acts as a starter template. However, **I wouldn't officially consider it a starter template**. It still has many bugs and blank areas in it. And I have many more features I want to add to it. But since it's publicly available, I may as well promote it as such.
-
-This project is mostly made for my personal use - to learn and condition myself for NodeJS development. **I have no clue if anyone will find this useful**. If you happen to want to use this, then by all means use it! But **be warned**. It's still a work in progress and may be a bit confusing to configure, for I have not put in much thought into the whole structure of the app.
-
-## Features
-### *Current* feature list
-- Database connection
-- User authentication
-- Responsive layout
-- Unit testing
-- User profile editing
-
-### *Future* feature list
-- User authentication from other sources (e.g. Facebook, Google+)
-- User media storage
-- Things I haven't thought of yet
+A boilerplate, dashboard themed, application with user authentication capabilities. This is really just a side project for myself, but it's completely free for anyone to use.
 
 ## Resources
-Mentionable resources that I configure throughout the project
-
 ### Frontend
 * **[Bootstrap 4](https://getbootstrap.com)** - Layout and base styling
 * **[HTML5 Boilerplate](https://html5boilerplate.com)** - Layout metadata and icons setup (Still currently using the favicon and icons from this boilerplate…)
 
 ### Backend
 * **[PostgreSQL](http://postgresguide.com)** - This app is built for accessing a PostgreSQL database. The module I use to broker this is [knex](https://www.npmjs.com/package/knex). Knex also supports other database management systems.
+* **[Knex](http://knexjs.org/) + [Obection.js](http://vincit.github.io/objection.js/)** - An ORM module I have recently adopted onto the project.
 * **[Passport](https://www.npmjs.com/package/passport)** - This module is used to authenticate and create user sessions. It used to be the bane of my existence, but now, I think I've gotten the use of it.
 
 ## Dependencies
@@ -102,13 +86,13 @@ You need a set of CLI tools to run this app. Make sure you have [Node Package Ma
 8. Exit the PostgreSQL CLI  
    `# \q`
 
-9. In the fullfeaturex directory, migrate knex
+9. In the fullfeaturex directory, migrate knex  
    `$ knex migrate:latest`
 
-10. Run the knex seed
+10. Run the knex seed  
   `$ knex seed:run`
 
-11. Run gulp
+11. Run gulp  
    `$ gulp`
 
 ## Testing
