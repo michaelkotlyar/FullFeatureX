@@ -29,8 +29,8 @@ module.exports = (passport) => {
 
   router.post('/register', function(req, res, next) {
     User.create(req)
-      .then(() => {
-        res.redirect('/user/login');
+      .then((user) => {
+        res.redirect('/users/login');
       })
       .catch(error => {
         res.status(500).send({ error: 'Something failed!' });

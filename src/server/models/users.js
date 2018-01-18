@@ -42,7 +42,7 @@ class User extends Model {
     var password = this.hash;
 
     if (password) {
-      if (this.varructor.isBcryptHash(password)) {
+      if (this.constructor.isBcryptHash(password)) {
         throw new Error('bcrypt tried to hash another bcrypt hash');
       }
       this.hash = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
