@@ -1,4 +1,8 @@
-!/bin/sh
+#!/bin/bash
+#
+# Checks changed javascript files in stage area by running npm test for each commit.
+#
+
 red="\033[0;31m"
 yellow="\033[1;33m"
 green="\033[1;32m"

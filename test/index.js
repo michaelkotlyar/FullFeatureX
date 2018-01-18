@@ -11,4 +11,5 @@ require('mocha-jshint')({
 chai.use(chaiHttp);
 
 describe('routes : index', function() {
+  console.log('I"m just testing');
 });
