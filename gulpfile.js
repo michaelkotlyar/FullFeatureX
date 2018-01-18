@@ -11,13 +11,14 @@ var server = require('tiny-lr')();
 
 var paths = {
   scripts: [
-    path.join('config', '**', '*.js')
+    path.join('src', 'server', '**', '*.js'),
+    path.join('src', 'client', 'javascripts', '**', '*.js')
   ],
   styles: [
-    path.join('public', 'stylesheets', 'css', '**', '*.css')
+    path.join('src', 'client', 'stylesheets', 'css', '**', '*.css')
   ],
   views: [
-    path.join('views', '**', '*.pug')
+    path.join('src', 'server', 'views', '**', '*.pug')
   ],
   server: 'src/server/server.js'
 };

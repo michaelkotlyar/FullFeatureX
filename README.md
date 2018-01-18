@@ -24,7 +24,7 @@ Mentionable resources that I configure throughout the project
 * **[HTML5 Boilerplate](https://html5boilerplate.com)** - Layout metadata and icons setup (Still currently using the favicon and icons from this boilerplate…)
 
 ### Backend
-* **[PostgreSQL](http://postgresguide.com)** - This app is built for accessing a PostgreSQL database. The module I use to broker this is [pg-promise](https://www.npmjs.com/package/pg-promise).
+* **[PostgreSQL](http://postgresguide.com)** - This app is built for accessing a PostgreSQL database. The module I use to broker this is [knex](https://www.npmjs.com/package/knex). Knex also supports other database management systems. 
 * **[Passport](https://www.npmjs.com/package/passport)** - This module is used to authenticate and create user sessions. It used to be the bane of my existence, but now, I think I've gotten the use of it.
 
 ## Dependencies
@@ -36,11 +36,14 @@ Mentionable resources that I configure throughout the project
 - [cookie-session](https://www.npmjs.com/package/cookie-session)
 - [dotenv](https://www.npmjs.com/package/dotenv)
 - [express](https://www.npmjs.com/package/express)
+- [faker](https://www.npmjs.com/package/faker)
 - [jquery](https://www.npmjs.com/package/jquery)
+- [knex](https://www.npmjs.com/package/knex)
 - [node-sass-middleware](https://www.npmjs.com/package/node-sass-middleware)
+- [objection](https://www.npmjs.com/package/objection)
 - [passport](https://www.npmjs.com/package/passport)
 - [passport-local](https://www.npmjs.com/package/passport-local)
-- [pg-promise](https://www.npmjs.com/package/pg-promise)
+- [pg](https://www.npmjs.com/package/pg)
 - [popper.js](https://www.npmjs.com/package/popper.js)
 - [pug](https://www.npmjs.com/package/pug)
 - [serve-favicon](https://www.npmjs.com/package/serve-favicon)

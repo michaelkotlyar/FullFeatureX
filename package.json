@@ -1,9 +1,9 @@
 {
   "name": "fullfeaturex",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "private": true,
   "scripts": {
-    "start": "node ./server/bin/www",
+    "start": "node ./src/server/server.js",
     "test": "NODE_ENV=test mocha --exit"
   },
   "dependencies": {
