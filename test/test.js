@@ -23,7 +23,6 @@ describe('routes : user', function() {
       chai.request(server)
         .get('/users')
         .end(function(err, res) {
-          should.not.exist(err);
           res.status.should.equal(200);
           done();
         });
@@ -39,7 +38,6 @@ describe('routes : user', function() {
           'password': 'borat'
         })
         .end(function(err, res) {
-          should.not.exist(err);
           res.status.should.equal(200);
           res.redirects.length.should.equal(2);
           done();
@@ -53,7 +51,6 @@ describe('routes : user', function() {
           'password': 'notborat'
         })
         .end(function(err, res) {
-          should.not.exist(err);
           res.status.should.equal(200);
           res.redirects.length.should.equal(1);
           done();
@@ -67,7 +64,6 @@ describe('routes : user', function() {
           'password': 'admin'
         })
         .end(function(err, res) {
-          should.not.exist(err);
           res.status.should.equal(200);
           res.redirects.length.should.equal(2);
           done();
