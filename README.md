@@ -24,7 +24,7 @@ Mentionable resources that I configure throughout the project
 * **[HTML5 Boilerplate](https://html5boilerplate.com)** - Layout metadata and icons setup (Still currently using the favicon and icons from this boilerplate…)
 
 ### Backend
-* **[PostgreSQL](http://postgresguide.com)** - This app is built for accessing a PostgreSQL database. The module I use to broker this is [knex](https://www.npmjs.com/package/knex). Knex also supports other database management systems. 
+* **[PostgreSQL](http://postgresguide.com)** - This app is built for accessing a PostgreSQL database. The module I use to broker this is [knex](https://www.npmjs.com/package/knex). Knex also supports other database management systems.
 * **[Passport](https://www.npmjs.com/package/passport)** - This module is used to authenticate and create user sessions. It used to be the bane of my existence, but now, I think I've gotten the use of it.
 
 ## Dependencies
@@ -73,45 +73,42 @@ Mentionable resources that I configure throughout the project
 You need a set of CLI tools to run this app. Make sure you have [Node Package Manager (npm)](https://nodejs.org/en/download/) installed first.
 
 * [npm](https://nodejs.org/en/download/)
+* [Knex](https://www.npmjs.com/package/gulp) `npm install -g knex`
 * [Gulp](https://www.npmjs.com/package/gulp) `npm install -g gulp`
 * [Mocha](https://www.npmjs.com/package/mocha) `npm install -g mocha`
-* [PostgreSQL (psql)](http://postgresguide.com/setup/install.html)
+* [PostgreSQL (psql)](http://postgresguide.com/setup/install.html). Make sure your database server is running for the installation.
 
 ### Installation
 1. Clone this repository into your desired directory  
 	`$ git clone https://github.com/uzimike/FullFeatureX.git`
 
-2. Go to application directory  
+2. Change the name of `.env-sample` to `.env`. And make any necessary changes to the file variables.
+
+3. Go to application directory  
    `$ cd  directory-to/fullfeaturex`
 
-3. Install the dependencies  
+4. Install the dependencies  
    `$ npm install`
 
-4. Enter PostgreSQL CLI  
+5. Enter the PostgreSQL CLI  
    `$ psql`
 
-5. Create your database  
+6. Create your database  
    `# create database fullfeaturex;`
 
-6. Connect to your database  
-   `# \c fullfeaturex`
-
-7. Execute the development preset sql to create and populate the table  
-  `# \i /full-directory-to/fullfeaturex/database-presets/development.sql`
-
-8. Create your test database  
+7. Create your test database  
    `# create database fullfeaturex_test;`
 
-9. Connect to your test database  
-   `# \c fullfeaturex_test`
-
-10. Execute the test preset sql to create and populate the table  
-   `# \i /full-directory-to/fullfeaturex/database-presets/test.sql`
-
-11. Exit PostgreSQL CLI  
+8. Exit the PostgreSQL CLI  
    `# \q`
 
-12. Run gulp in the fullfeaturex directory  
+9. In the fullfeaturex directory, migrate knex
+   `$ knex migrate:latest`
+
+10. Run the knex seed
+  `$ knex seed:run`
+
+11. Run gulp
    `$ gulp`
 
 ## Testing
