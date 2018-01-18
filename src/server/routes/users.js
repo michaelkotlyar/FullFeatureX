@@ -13,6 +13,7 @@ module.exports = (passport) => {
           users: users
         });
         res.render('users', renderObject);
+        return users;
       })
       .catch(error => {
         res.status(500).send({ error: 'Something failed!' });
@@ -45,7 +46,7 @@ module.exports = (passport) => {
   });
 
   router.post('/profile', helper.loggedIn, function(req, res, next) {
-    helper.modifyUser(req, res, next)
+    User.edit(req, res, next)
       .then(() => {
         res.redirect('/users/profile');
       });

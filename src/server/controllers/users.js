@@ -8,26 +8,27 @@ module.exports = {
   create: (req) => {
     return User
       .query()
-      .insert(req.body);
+      .insert({
+        username: req.body.username,
+        hash: req.body.password,
+        email: req.body.email
+      });
   },
 
   edit: (req, res, next) => {
-    var changeUsername = false, changeEmail = false, changeImage = false;
-    var user = {
-      id: req.user.user_id
-    };
+    var user = {}
     if (req.username !== req.body.username && req.username !== '') {
-      changeUsername = true;
-      user.user_name = req.body.username;
+      user.username = req.body.username;
     }
     if (req.email !== req.body.email && req.email !== '') {
-      changeEmail = true;
-      user.user_email = req.body.email;
+      user.email = req.body.email;
     }
     if (req.image) {
-      changeImage = true;
-      user.user_image = req.body.image;
+      user.image = req.body.image;
     }
-    return User.modifyUser(user);
+    return User
+      .query()
+      .where('id', req.user.id)
+      .update(user);
   }
 }
