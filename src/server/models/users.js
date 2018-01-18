@@ -43,7 +43,7 @@ class User extends Model {
 
     if (password) {
       if (this.constructor.isBcryptHash(password)) {
-        throw new Error('bcrypt tried to hash another bcrypt hash');
+        throw new Error('bcrypt tried to hash another bcrypt hash...');
       }
       this.hash = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
       return;
