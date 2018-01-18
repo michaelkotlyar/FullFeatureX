@@ -31,7 +31,7 @@ app.use(express.static(path.join(__dirname, '..', 'client')));
 
 // front end modules
 app.use('/vendor/jquery', express.static(path.join(__dirname, '..', '..', 'node_modules', 'jquery', 'dist')));
-app.use('/vendor/popper.js', express.static(path.join(__dirname, '..', '..', 'node_modules', 'popper.js', 'dist')));
+app.use('/vendor/popper.js', express.static(path.join(__dirname, '..', '..', 'node_modules', 'popper.js', 'dist', 'umd')));
 app.use('/vendor/bootstrap', express.static(path.join(__dirname, '..', '..', 'node_modules', 'bootstrap', 'dist')));
 
 // session
