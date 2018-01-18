@@ -11,10 +11,10 @@ module.exports = {
       password: process.env.DB_PASS
     },
     migrations: {
-      directory: __dirname + '/server/config/database/migrations'
+      directory: __dirname + '/src/server/config/database/migrations'
     },
     seeds: {
-      directory: __dirname + '/server/config/database/seeds'
+      directory: __dirname + '/src/server/config/database/seeds'
     }
   },
 
@@ -28,10 +28,10 @@ module.exports = {
       password: process.env.DB_PASS
     },
     migrations: {
-      directory: __dirname + '/server/config/database/migrations'
+      directory: __dirname + '/src/server/config/database/migrations'
     },
     seeds: {
-      directory: __dirname + '/server/config/database/seeds'
+      directory: __dirname + '/src/server/config/database/seeds'
     }
   }
 

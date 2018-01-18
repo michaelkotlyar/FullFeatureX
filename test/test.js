@@ -1,6 +1,6 @@
 var chai = require('chai');
 var chaiHttp = require('chai-http');
-var server = require('../server/app');
+var server = require('../src/server/app');
 var should = chai.should();
 var knex = require('knex')(require('../knexfile')['test']);
 
