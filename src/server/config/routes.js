@@ -10,4 +10,4 @@ module.exports = (passport, app) => {
   app.use('/', index);
   app.use('/users', users);
 
-}
+};

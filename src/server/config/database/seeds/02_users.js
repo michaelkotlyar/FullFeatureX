@@ -3,7 +3,7 @@ var bcrypt = require('bcryptjs');
 
 function hash(password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
-};
+}
 
 function users() {
   var usersArray = [
@@ -11,7 +11,7 @@ function users() {
     {username: 'Borat', hash: hash('borat'), email: 'borat@fullfeaturex.com'},
     {username: 'Admin', hash: hash('admin'), email: 'admin@fullfeaturex.com', type: 1}
   ];
-  if (process.env.NODE_ENV == 'development') {
+  if (process.env.NODE_ENV === 'development') {
     for (var i = 0; i < 100; i++) {
       usersArray.push({
         username: faker.internet.userName(),
@@ -21,7 +21,7 @@ function users() {
     }
   }
   return usersArray;
-};
+}
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries

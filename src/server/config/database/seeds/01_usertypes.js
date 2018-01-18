@@ -5,7 +5,7 @@ exports.seed = function(knex, Promise) {
       // Inserts seed entries
       return knex('user_types').insert([
         {type: 0, title: 'user'},
-        {type: 1, title: 'admin'},
+        {type: 1, title: 'admin'}
       ]);
     });
 };

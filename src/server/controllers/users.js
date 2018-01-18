@@ -16,7 +16,7 @@ module.exports = {
   },
 
   edit: (req, res, next) => {
-    var user = {}
+    var user = {};
     if (req.username !== req.body.username && req.username !== '') {
       user.username = req.body.username;
     }
@@ -31,4 +31,4 @@ module.exports = {
       .where('id', req.user.id)
       .update(user);
   }
-}
+};

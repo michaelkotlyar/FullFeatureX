@@ -50,8 +50,6 @@ class User extends Model {
     }
 
     throw new Error('password must not be empty');
-
-    return Promise.resolve();
   }
 
   static isBcryptHash(str) {

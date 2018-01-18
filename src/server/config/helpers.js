@@ -22,7 +22,7 @@ module.exports = {
     }
   },
   adminAccess: (req, res, next) => {
-    if (req.user && req.user.user_type == 1) {
+    if (req.user && req.user.user_type === 1) {
       next();
     }
     else {
