@@ -6,6 +6,7 @@ var session = require('cookie-session');
 var sassMiddleware = require('node-sass-middleware');
 
 require('dotenv').config();
+require('./config/database/connection.js');
 
 var passport = require('passport');
 

@@ -2,12 +2,37 @@ var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/user');
 
 module.exports = (passport) => {
+
+  passport.use(
+    new LocalStrategy((username, password, done) => {
+      User
+      .query()
+      .where('username', username)
+      .first()
+      .then((user) => {
+        if (!user) {
+          return done(null, false, { message: 'Username does not exist' });
+        }
+        user.verifyPassword(password, function (error, passwordCorrect) {
+          if (error) { return done(error); }
+          if (!passwordCorrect) { return done(null, false, { message: 'Passord incorrect' }); }
+          return done(null, user);
+        });
+      })
+      .catch((error) => {
+        return done(error);
+      });
+    }
+  ));
+
   passport.serializeUser((user, done) => {
-    done(null, user.user_id);
+    done(null, user.id);
   });
 
   passport.deserializeUser((id, done) => {
-    User.findById(id)
+    User
+    .query()
+    .findById(id)
     .then((user) => {
       done(null, user);
     })
@@ -16,23 +41,4 @@ module.exports = (passport) => {
     });
   });
 
-  passport.use(new LocalStrategy(
-    (username, password, done) => {
-      User.findByUserName(username)
-      .then((user) => {
-        if (!user) {
-          return done(null, false, { message: 'Incorrect username.' });
-        }
-        User.comparePassword(password, user.user_password).then((res) => {
-          if (!res) {
-            return done(null, false, { message: 'Incorrect password.' });
-          }
-          return done(null, user);
-        });
-      })
-      .catch((error) => {
-        return done(null, false, { message:'Wrong username or password.' });
-      });
-    }
-  ));
 };
