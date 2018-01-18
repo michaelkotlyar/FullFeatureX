@@ -1,11 +1,11 @@
 var User = require('../models/users');
 
 module.exports = {
-  getAll: () => {
+  getAll: function() {
     return User.query();
   },
 
-  create: (req) => {
+  create: function(req) {
     return User
       .query()
       .insert({
@@ -15,7 +15,7 @@ module.exports = {
       });
   },
 
-  edit: (req, res, next) => {
+  edit: function(req, res, next) {
     var user = {};
     if (req.username !== req.body.username && req.username !== '') {
       user.username = req.body.username;

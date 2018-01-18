@@ -2,7 +2,7 @@ var chai = require('chai');
 var chaiHttp = require('chai-http');
 var server = require('../src/server/app');
 var should = chai.should();
-var knex = require('knex')(require('../knexfile')['test']);
+var knex = require('knex')(require('../knexfile').test);
 
 chai.use(chaiHttp);
 
@@ -34,8 +34,8 @@ describe('routes : user', function() {
       chai.request(server)
       .post('/users/login')
       .send({
-        'username': 'Borat',
-        'password': 'borat'
+        username: 'Borat',
+        password: 'borat'
       })
       .end(function(err, res) {
         res.status.should.equal(200);
@@ -47,8 +47,8 @@ describe('routes : user', function() {
       chai.request(server)
       .post('/users/login')
       .send({
-        'username': 'Borat',
-        'password': 'notborat'
+        username: 'Borat',
+        password: 'notborat'
       })
       .end(function(err, res) {
         res.status.should.equal(200);
@@ -60,8 +60,8 @@ describe('routes : user', function() {
       chai.request(server)
       .post('/users/login')
       .send({
-        'username': 'Admin',
-        'password': 'admin'
+        username: 'Admin',
+        password: 'admin'
       })
       .end(function(err, res) {
         res.status.should.equal(200);
@@ -76,10 +76,10 @@ describe('routes : user', function() {
       chai.request(server)
       .post('/users/register')
       .send({
-        'username': 'Steve',
-        'password': 'steve',
-        'confirmpassword': 'steve',
-        'email': 'steve@fullfeaturex.com'
+        username: 'Steve',
+        password: 'steve',
+        confirmpassword: 'steve',
+        email: 'steve@fullfeaturex.com'
       })
       .end(function(err, res) {
         res.status.should.equal(200);

@@ -2,7 +2,7 @@ var User = require('../models/users');
 var extend = require('util')._extend;
 
 module.exports = {
-  renderObject: (req, extra = {}) => {
+  renderObject: function(req, extra = {}) {
     var renderObject = {};
     if (req.user) {
       renderObject.loggedIn = true;
@@ -13,7 +13,7 @@ module.exports = {
     extend(renderObject, extra);
     return renderObject;
   },
-  loggedIn: (req, res, next) => {
+  loggedIn: function(req, res, next) {
     if (!req.user) {
       res.redirect('/users/login');
     }
@@ -21,7 +21,7 @@ module.exports = {
       next();
     }
   },
-  adminAccess: (req, res, next) => {
+  adminAccess: function(req, res, next) {
     if (req.user && req.user.user_type === 1) {
       next();
     }

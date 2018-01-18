@@ -52,7 +52,7 @@ gulp.task('jshint', () => {
   return gulp.src(paths.scripts)
     .pipe(plumber())
     .pipe(jshint({
-      esnext: true
+      esversion: 6
     }))
     .pipe(jshint.reporter('jshint-stylish'))
     .pipe(jshint.reporter('fail'));

@@ -3,11 +3,11 @@ var router = express.Router();
 var User = require('../controllers/users');
 var helper = require('../config/helpers');
 
-module.exports = (passport) => {
+module.exports = function(passport) {
 
   router.get('/', function(req, res, next) {
     User.getAll()
-      .then(users => {
+      .then(function(users) {
         var renderObject = helper.renderObject(req, {
           title: 'Users',
           users: users
@@ -15,7 +15,7 @@ module.exports = (passport) => {
         res.render('users', renderObject);
         return users;
       })
-      .catch(error => {
+      .catch(function(error) {
         res.status(500).send({ error: 'Something failed!' });
       });
   });
@@ -29,10 +29,11 @@ module.exports = (passport) => {
 
   router.post('/register', function(req, res, next) {
     User.create(req)
-      .then((user) => {
+      .then(function(user) {
         res.redirect('/users/login');
       })
-      .catch(error => {
+      .catch(function(error) {
+        console.log(error);
         res.status(500).send({ error: 'Something failed!' });
       });
   });
@@ -47,7 +48,7 @@ module.exports = (passport) => {
 
   router.post('/profile', helper.loggedIn, function(req, res, next) {
     User.edit(req, res, next)
-      .then(() => {
+      .then(function() {
         res.redirect('/users/profile');
       });
   });

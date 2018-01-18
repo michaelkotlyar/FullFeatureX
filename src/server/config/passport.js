@@ -1,15 +1,15 @@
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/users');
 
-module.exports = (passport) => {
+module.exports = function(passport) {
 
   passport.use(
-    new LocalStrategy((username, password, done) => {
+    new LocalStrategy(function(username, password, done) {
       User
       .query()
       .where('username', username)
       .first()
-      .then((user) => {
+      .then(function(user) {
         if (!user) {
           return done(null, false, { message: 'Username does not exist' });
         }
@@ -19,24 +19,24 @@ module.exports = (passport) => {
           return done(null, user);
         });
       })
-      .catch((error) => {
+      .catch(function(error) {
         return done(error);
       });
     }
   ));
 
-  passport.serializeUser((user, done) => {
+  passport.serializeUser(function(user, done) {
     done(null, user.id);
   });
 
-  passport.deserializeUser((id, done) => {
+  passport.deserializeUser(function(id, done) {
     User
     .query()
     .findById(id)
-    .then((user) => {
+    .then(function(user) {
       done(null, user);
     })
-    .catch((error) => {
+    .catch(function(error) {
       return done(error);
     });
   });
