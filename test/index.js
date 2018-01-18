@@ -11,4 +11,23 @@ require('mocha-jshint')({
 chai.use(chaiHttp);
 
 describe('routes : index', function() {
+  describe('GET /', function() {
+    it('should go to homepage but be directed to login ', function(done) {
+      chai.request(server)
+      .get('/')
+      .end(function(err, res) {
+        res.redirects.length.should.equal(1);
+        done();
+      });
+    });
+  });
 });
+
+// describe('', function() {
+//   it('should ', function(done) {
+//     chai.request(server)
+//     .end(function(err, res) {
+//       done();
+//     });
+//   });
+// });

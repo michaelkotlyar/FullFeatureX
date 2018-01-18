@@ -24,6 +24,7 @@ describe('routes : user', function() {
       .get('/users')
       .end(function(err, res) {
         res.status.should.equal(200);
+        res.redirects.length.should.equal(0);
         done();
       });
     })
@@ -89,12 +90,3 @@ describe('routes : user', function() {
   });
 
 });
-
-// describe('', function() {
-//   it('should ', function(done) {
-//     chai.request(server)
-//     .end(function(err, res) {
-//       done();
-//     });
-//   });
-// });
