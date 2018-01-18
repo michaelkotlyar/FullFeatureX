@@ -57,7 +57,7 @@ A boilerplate, dashboard themed, application with user authentication capabiliti
 You need a set of CLI tools to run this app. Make sure you have [Node Package Manager (npm)](https://nodejs.org/en/download/) installed first.
 
 * [npm](https://nodejs.org/en/download/)
-* [Knex](https://www.npmjs.com/package/gulp) `npm install -g knex`
+* [Knex](https://www.npmjs.com/package/knex) `npm install -g knex`
 * [Gulp](https://www.npmjs.com/package/gulp) `npm install -g gulp`
 * [Mocha](https://www.npmjs.com/package/mocha) `npm install -g mocha`
 * [PostgreSQL (psql)](http://postgresguide.com/setup/install.html). Make sure your database server is running for the installation.
