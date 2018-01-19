@@ -13,6 +13,7 @@ function users() {
   ];
   if (process.env.NODE_ENV === 'development') {
     for (var i = 0; i < 100; i++) {
+      faker.seed(i);
       usersArray.push({
         username: faker.internet.userName(),
         hash: hash(faker.internet.password()),
