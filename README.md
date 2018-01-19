@@ -35,6 +35,7 @@ A boilerplate, dashboard themed, application with user authentication capabiliti
 ### Development
 - [chai](https://www.npmjs.com/package/chai)
 - [chai-http](https://www.npmjs.com/package/chai-http)
+- [git-hooks](https://www.npmjs.com/package/git-hooks)
 - [gulp](https://www.npmjs.com/package/gulp)
 - [gulp-jscs](https://www.npmjs.com/package/gulp-jscs)
 - [gulp-jshint](https://www.npmjs.com/package/gulp-jshint)
@@ -44,6 +45,8 @@ A boilerplate, dashboard themed, application with user authentication capabiliti
 - [jshint](https://www.npmjs.com/package/jshint)
 - [jshint-stylish](https://www.npmjs.com/package/jshint-stylish)
 - [mocha](https://www.npmjs.com/package/mocha)
+- [mocha-jscs](https://www.npmjs.com/package/mocha-jscs)
+- [mocha-jshint](https://www.npmjs.com/package/mocha-jshint)
 - [run-sequence](https://www.npmjs.com/package/run-sequence)
 - [tiny-lr](https://www.npmjs.com/package/tiny-lr)
 
@@ -96,12 +99,32 @@ You need a set of CLI tools to run this app. Make sure you have [Node Package Ma
    `$ gulp`
 
 ## Testing
-The testing side of this project is somewhat a bit of a wasteland. That being said, there are currently a few tests written and set up. To run the tests, all you have to do is run `npm test`.
+`npm test`
 
-The tests are currently stored in `fullfeaturex/test/test.js`. Have a look at [mocha](https://mochajs.org/) and [chai](http://chaijs.com/) to see how to use this.
+There are a few tests currently stored in `fullfeaturex/test/*.js`. Have a look at [mocha](https://mochajs.org/) and [chai](http://chaijs.com/) to see how to use this. [jscs](https://www.npmjs.com/package/jscs) and [jshint](https://www.npmjs.com/package/jshint) is also used to check for configurable coding syntax.
+
+This project has recently adopted [git-hooks](https://www.npmjs.com/package/git-hooks). This means that with every commit, the project will be fully tested beforehand to check if nothing has broken (only if there is any `*.js` files in the commit).
 
 ## Notes
-The passwords of the preset users are their respective usernames in lowercase (e.g. User: Borat  Password: borat)
+### Preset accounts
+In the development environment, there are three accessible users accounts in the user database.
+
+**Michael**
+
+    username: Michael
+    password: michael
+
+**Borat**
+
+    username: Borat
+    password: borat
+
+**Admin**
+
+    username: Admin
+    password: admin
+
+The rest that you see in `/users` are [faker](https://www.npmjs.com/package/faker) accounts generated when seeding data into the database. The passwords are practically unknown.
 
 ## Contribution
 I personally intend for this project to be my own work. However, if there are any improvements you'd like to suggest, you're more than welcome to contact me about it.
