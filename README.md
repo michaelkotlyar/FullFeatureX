@@ -47,6 +47,7 @@ A boilerplate, dashboard themed, application with user authentication capabiliti
 - [mocha](https://www.npmjs.com/package/mocha)
 - [mocha-jscs](https://www.npmjs.com/package/mocha-jscs)
 - [mocha-jshint](https://www.npmjs.com/package/mocha-jshint)
+- [nyc](https://www.npmjs.com/package/nyc)
 - [run-sequence](https://www.npmjs.com/package/run-sequence)
 - [tiny-lr](https://www.npmjs.com/package/tiny-lr)
 
@@ -101,9 +102,9 @@ You need a set of CLI tools to run this app. Make sure you have [Node Package Ma
 ## Testing
 `npm test`
 
-There are a few tests currently stored in `fullfeaturex/test/*.js`. Have a look at [mocha](https://mochajs.org/) and [chai](http://chaijs.com/) to see how to use this. [jscs](https://www.npmjs.com/package/jscs) and [jshint](https://www.npmjs.com/package/jshint) is also used to check for configurable coding syntax.
+There are a few tests currently stored in `fullfeaturex/test/*.js`. Have a look at [mocha](https://mochajs.org/) and [chai](http://chaijs.com/) to see how to use this. [jscs](https://www.npmjs.com/package/jscs) and [jshint](https://www.npmjs.com/package/jshint) is used to check for configurable coding syntax. [nyc](https://www.npmjs.com/package/nyc) is used for testing coverage.
 
-This project has recently adopted [git-hooks](https://www.npmjs.com/package/git-hooks). This means that with every commit, the project will be fully tested beforehand to check if nothing has broken (only if there is any `*.js` files in the commit).
+This project uses [git-hooks](https://www.npmjs.com/package/git-hooks) and tests the project at every commit (only if there is any `*.js` files in the commit).
 
 ## Notes
 ### Preset accounts
