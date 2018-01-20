@@ -14,11 +14,11 @@ module.exports = {
     return renderObject;
   },
   loggedIn: function(req, res, next) {
-    if (!req.user) {
-      res.redirect('/users/login');
+    if (req.user) {
+      next();
     }
     else {
-      next();
+      res.redirect('/users/login');
     }
   },
   adminAccess: function(req, res, next) {
