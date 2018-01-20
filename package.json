@@ -35,7 +35,6 @@
     "gulp-jshint": "^2.1.0",
     "gulp-nodemon": "^2.2.1",
     "gulp-plumber": "^1.2.0",
-    "jasmine-node": "^1.14.5",
     "jscs": "^3.0.7",
     "jshint": "^2.9.5",
     "jshint-stylish": "^2.2.1",
