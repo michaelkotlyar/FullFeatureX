@@ -4,6 +4,7 @@ var extend = require('util')._extend;
 module.exports = {
   renderObject: function(req, extra = {}) {
     var renderObject = {};
+    renderObject.path = req._parsedOriginalUrl.pathname;
     if (req.user) {
       renderObject.loggedIn = true;
       renderObject.username = req.user.username;

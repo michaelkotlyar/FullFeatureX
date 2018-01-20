@@ -1,6 +1,9 @@
 mixin list-item(url, label)
   li.nav-item
-    a.nav-link(href=url)=label
+    if path == url
+      a.nav-link.active(href=url)=label
+    else
+      a.nav-link(href=url)=label
 
 +list-item("/", "Dashboard")
 +list-item("/help", "Help")
