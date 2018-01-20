@@ -1,23 +1,21 @@
 extends centered
 
 block content
-  h1= title
-  .container
-    .row
-      .col-md-4.offset-md-4
-        if warning
-          .alert.alert-warning.alert-dismissible.fade.show(role="alert")
-            button(type="button" class="close" data-dismiss="alert" aria-label="Close")
-              span(aria-hidden="true") &times;
-            strong Something went wrong… 
-            br
-            span #{warning}
-        form.login(action="/users/login" method="post")
-          .form-group
-            label(for="loginUsername") Username
-            input(id="loginUsername" class="form-control" name="username" type="username" placeholder="Username")
-          .form-group
-            label(for="loginPassword") Password
-            input(id="loginPassword" class="form-control" name="password" type="password", placeholder="Password")
-          .form-group.text-center
-            button(type="submit" class="btn btn-primary") Submit
+  if warning
+    .alert.alert-warning.alert-dismissible.fade.show(role="alert")
+      button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+        span(aria-hidden="true") &times;
+      strong Something went wrong… 
+      br
+      span #{warning}
+  form.form-login(action="/users/login" method="post")
+    .text-center.mb-4
+      h1.h3.mb-3.font-weight-normal= title
+    .form-group
+      label(for="loginUsername") Username
+      input(id="loginUsername" class="form-control" name="username" type="username" placeholder="Username")
+    .form-group
+      label(for="loginPassword") Password
+      input(id="loginPassword" class="form-control" name="password" type="password", placeholder="Password")
+    .form-group
+      button(type="submit" class="btn btn-lg btn-block btn-primary") Submit
