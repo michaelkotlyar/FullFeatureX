@@ -3,14 +3,16 @@ $(function() {
   const PATH = window.location.pathname;
 
   if (PATH === '/users/register') {
-    $('#registerPassword, #registerConfirmPassword').on('keyup', function () {
-      if ($('#registerPassword').val() === $('#registerConfirmPassword').val()) {
-        $('#registerConfirmPassword').removeClass('is-invalid');
-        $('#registerConfirmPassword').addClass('is-valid');
+    var confirmPassword = $('#registerConfirmPassword'),
+    password = $('#registerPassword');
+    $('input[type="password"]').on('keyup', function () {
+      if (password.val() === confirmPassword.val()) {
+        confirmPassword.removeClass('is-invalid');
+        confirmPassword.addClass('is-valid');
       }
       else {
-        $('#registerConfirmPassword').removeClass('is-valid');
-        $('#registerConfirmPassword').addClass('is-invalid');
+        confirmPassword.removeClass('is-valid');
+        confirmPassword.addClass('is-invalid');
       }
     });
   }
