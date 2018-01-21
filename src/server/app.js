@@ -4,11 +4,10 @@ var favicon = require('serve-favicon');
 var bodyParser = require('body-parser');
 var session = require('cookie-session');
 var sassMiddleware = require('node-sass-middleware');
+var passport = require('passport');
 
 require('dotenv').config();
 require('./config/database/connection.js');
-
-var passport = require('passport');
 
 var app = express();
 
