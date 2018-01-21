@@ -7,8 +7,8 @@ A boilerplate, dashboard themed, application with user authentication capabiliti
 * **[HTML5 Boilerplate](https://html5boilerplate.com)** - Layout metadata and icons setup (Still currently using the favicon and icons from this boilerplate…)
 
 ### Backend
-* **[PostgreSQL](http://postgresguide.com)** - This app is built for accessing a PostgreSQL database. The module I use to broker this is [knex](https://www.npmjs.com/package/knex). Knex also supports other database management systems.
-* **[Knex](http://knexjs.org/) + [Obection.js](http://vincit.github.io/objection.js/)** - An ORM module I have recently adopted onto the project.
+* **[PostgreSQL](http://postgresguide.com)** - This app is built for accessing a PostgreSQL database. The module I use to broker this is [Knex.js](https://www.npmjs.com/package/knex). Knex also supports other database management systems.
+* **[Knex.js](http://knexjs.org/) + [Objection.js](http://vincit.github.io/objection.js/)** - An ORM module I have recently adopted onto the project.
 * **[Passport](https://www.npmjs.com/package/passport)** - This module is used to authenticate and create user sessions. It used to be the bane of my existence, but now, I think I've gotten the use of it.
 
 ## Dependencies
@@ -61,12 +61,15 @@ A boilerplate, dashboard themed, application with user authentication capabiliti
 You need a set of CLI tools to run this app. Make sure you have [Node Package Manager (npm)](https://nodejs.org/en/download/) installed first.
 
 * [npm](https://nodejs.org/en/download/)
-* [Knex](https://www.npmjs.com/package/knex) `npm install -g knex`
+* [Knex.js](https://www.npmjs.com/package/knex) `npm install -g knex`
 * [Gulp](https://www.npmjs.com/package/gulp) `npm install -g gulp`
 * [Mocha](https://www.npmjs.com/package/mocha) `npm install -g mocha`
-* [PostgreSQL (psql)](http://postgresguide.com/setup/install.html). Make sure your database server is running for the installation.
+* [PostgreSQL](http://postgresguide.com/setup/install.html) (client & CLI)  
+Make sure your database server is running for the installation.
 
-### Installation
+### Installation Instructions
+These instructions assume you have installed the [prerequisites](#prerequisites), like using command-line, and you are using PostgreSQL as your DBMS. You can use other databases such as [SQLite3](http://sqlite.org/) and [MySQL](https://www.mysql.com/) according to [Objection.js](https://www.npmjs.com/package/objection) and [Knex.js](https://www.npmjs.com/package/knex).
+
 1. Clone this repository into your desired directory  
 	`$ git clone https://github.com/uzimike/FullFeatureX.git`
 
@@ -128,7 +131,7 @@ In the development environment, there are three accessible users accounts in the
 The rest that you see in the `/users` page are [faker](https://www.npmjs.com/package/faker) accounts generated when seeding data into the database. The passwords are practically unknown.
 
 ### Subresource Integrity
-The [bootstrap](https://www.npmjs.com/package/bootstrap), [popper.js](https://www.npmjs.com/package/popper.js) and [jquery](https://www.npmjs.com/package/jquery) libraries are referenced in `/src/server/views/layout.pug`. Their integrity attribute is generated from their file content and should be regenerated every time the respective module is updated. [Here's a good resource on this](https://truveris.github.io/articles/subresource-integrity/).
+The [bootstrap](https://www.npmjs.com/package/bootstrap), [popper.js](https://www.npmjs.com/package/popper.js) and [jquery](https://www.npmjs.com/package/jquery) libraries are referenced in `/src/server/views/layout.pug`. Their integrity attributes are generated from their file content and should be regenerated every time the respective module is updated. [Here's a good resource on this](https://truveris.github.io/articles/subresource-integrity/).
 
 ## Contribution
 I personally intend for this project to be my own work. However, if there are any improvements you'd like to suggest, you're more than welcome to contact me about it.
