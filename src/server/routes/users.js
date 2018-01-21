@@ -22,7 +22,8 @@ module.exports = function(passport) {
 
   router.get('/register', function(req, res, next) {
     var renderObject = helper.renderObject(req, {
-      title: 'Register'
+      title: 'Register',
+      bodyClasses: 'float'
     });
     res.render('register', renderObject);
   });
@@ -55,7 +56,8 @@ module.exports = function(passport) {
 
   router.get('/login', function(req, res, next) {
     var renderObject = helper.renderObject(req, {
-      title: 'Login'
+      title: 'Login',
+      bodyClasses: 'float'
     });
     var warningMsg = req.flash('error');
     if (warningMsg.length !== 0) { renderObject.warning = warningMsg; }
