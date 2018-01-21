@@ -8,5 +8,7 @@
   "unused":    false,
   "onecase":   true,
   "lastsemic": true,
-  "esversion": 6
+  "esversion": 6,
+  "jquery": true,
+  "browser" : true
 }
