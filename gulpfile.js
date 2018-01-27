@@ -1,7 +1,5 @@
 var path = require('path');
 var gulp = require('gulp');
-var jshint = require('gulp-jshint');
-var jscs = require('gulp-jscs');
 var runSequence = require('run-sequence');
 var nodemon = require('gulp-nodemon');
 var plumber = require('gulp-plumber');
@@ -38,8 +36,6 @@ var nodemonConfig = {
 
 gulp.task('default', () => {
   runSequence(
-    ['jshint'],
-    ['jscs'],
     ['lr'],
     ['nodemon'],
     ['watch']
@@ -47,24 +43,6 @@ gulp.task('default', () => {
 });
 
 //sub tasks
-
-gulp.task('jshint', () => {
-  return gulp.src(paths.scripts)
-    .pipe(plumber())
-    .pipe(jshint({
-      esversion: 6
-    }))
-    .pipe(jshint.reporter('jshint-stylish'))
-    .pipe(jshint.reporter('fail'));
-});
-
-gulp.task('jscs', () => {
-  return gulp.src(paths.scripts)
-    .pipe(plumber())
-    .pipe(jscs())
-    .pipe(jscs.reporter())
-    .pipe(jscs.reporter('fail'));
-});
 
 gulp.task('styles', () => {
   return gulp.src(paths.styles)
