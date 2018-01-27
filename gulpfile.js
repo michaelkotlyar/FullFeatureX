@@ -1,8 +1,7 @@
 var path = require('path');
 var gulp = require('gulp');
-var jshint = require('gulp-jshint');
-var jscs = require('gulp-jscs');
 var runSequence = require('run-sequence');
+var eslint = require('gulp-eslint');
 var nodemon = require('gulp-nodemon');
 var plumber = require('gulp-plumber');
 var server = require('tiny-lr')();
@@ -38,8 +37,7 @@ var nodemonConfig = {
 
 gulp.task('default', () => {
   runSequence(
-    ['jshint'],
-    ['jscs'],
+    ['lint'],
     ['lr'],
     ['nodemon'],
     ['watch']
@@ -48,22 +46,11 @@ gulp.task('default', () => {
 
 //sub tasks
 
-gulp.task('jshint', () => {
-  return gulp.src(paths.scripts)
-    .pipe(plumber())
-    .pipe(jshint({
-      esversion: 6
-    }))
-    .pipe(jshint.reporter('jshint-stylish'))
-    .pipe(jshint.reporter('fail'));
-});
-
-gulp.task('jscs', () => {
-  return gulp.src(paths.scripts)
-    .pipe(plumber())
-    .pipe(jscs())
-    .pipe(jscs.reporter())
-    .pipe(jscs.reporter('fail'));
+gulp.task('lint', () => {
+  return gulp.src(['src/**/*.js'])
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
 });
 
 gulp.task('styles', () => {
@@ -90,6 +77,5 @@ gulp.task('nodemon', () => {
 
 gulp.task('watch', () => {
   gulp.watch(paths.html, ['html']);
-  gulp.watch(paths.scripts, ['jshint', 'jscs']);
   gulp.watch(paths.styles, ['styles']);
 });

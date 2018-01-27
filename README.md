@@ -37,16 +37,12 @@ A boilerplate, dashboard themed, application with user authentication capabiliti
 - [chai-http](https://www.npmjs.com/package/chai-http)
 - [git-hooks](https://www.npmjs.com/package/git-hooks)
 - [gulp](https://www.npmjs.com/package/gulp)
-- [gulp-jscs](https://www.npmjs.com/package/gulp-jscs)
-- [gulp-jshint](https://www.npmjs.com/package/gulp-jshint)
+- [gulp-eslint](https://www.npmjs.com/package/gulp-eslint)
 - [gulp-nodemon](https://www.npmjs.com/package/gulp-nodemon)
 - [gulp-plumber](https://www.npmjs.com/package/gulp-plumber)
-- [jscs](https://www.npmjs.com/package/jscs)
-- [jshint](https://www.npmjs.com/package/jshint)
-- [jshint-stylish](https://www.npmjs.com/package/jshint-stylish)
+- [eslint](https://www.npmjs.com/package/eslint)
 - [mocha](https://www.npmjs.com/package/mocha)
-- [mocha-jscs](https://www.npmjs.com/package/mocha-jscs)
-- [mocha-jshint](https://www.npmjs.com/package/mocha-jshint)
+- [mocha-eslint](https://www.npmjs.com/package/mocha-eslint)
 - [nyc](https://www.npmjs.com/package/nyc)
 - [run-sequence](https://www.npmjs.com/package/run-sequence)
 - [tiny-lr](https://www.npmjs.com/package/tiny-lr)
@@ -105,7 +101,7 @@ These instructions assume you have installed the [prerequisites](#prerequisites)
 ## Testing
 `npm test`
 
-There are a few tests currently stored in `fullfeaturex/test/*.js`. Have a look at [mocha](https://mochajs.org/) and [chai](http://chaijs.com/) to see how to use this. [jscs](https://www.npmjs.com/package/jscs) and [jshint](https://www.npmjs.com/package/jshint) is used to check for configurable coding syntax. [nyc](https://www.npmjs.com/package/nyc) is used for testing coverage.
+There are a few tests currently stored in `fullfeaturex/test/*.js`. Have a look at [mocha](https://mochajs.org/) and [chai](http://chaijs.com/) to see how to use this. [eslint](https://www.npmjs.com/package/eslint) is used to check for configurable coding syntax. [nyc](https://www.npmjs.com/package/nyc) is used for testing coverage.
 
 This project uses [git-hooks](https://www.npmjs.com/package/git-hooks) and tests the project at every commit (only if there is any `*.js` files in the commit).
 

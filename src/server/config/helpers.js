@@ -9,7 +9,9 @@ module.exports = {
       renderObject.loggedIn = true;
       renderObject.username = req.user.username;
       renderObject.email = req.user.email;
-      if (req.user.image) { renderObject.image = req.user.image; }
+      if (req.user.image) {
+        renderObject.image = req.user.image;
+      }
     }
     extend(renderObject, extra);
     return renderObject;
