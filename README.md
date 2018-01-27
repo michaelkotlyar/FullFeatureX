@@ -126,9 +126,6 @@ In the development environment, there are three accessible users accounts in the
 
 The rest that you see in the `/users` page are [faker](https://www.npmjs.com/package/faker) accounts generated when seeding data into the database. The passwords are practically unknown.
 
-### Subresource Integrity
-The [bootstrap](https://www.npmjs.com/package/bootstrap), [popper.js](https://www.npmjs.com/package/popper.js) and [jquery](https://www.npmjs.com/package/jquery) libraries are referenced in `/src/server/views/layout.pug`. Their integrity attributes are generated from their file content and should be regenerated every time the respective module is updated. [Here's a good resource on this](https://truveris.github.io/articles/subresource-integrity/).
-
 ## Contribution
 I personally intend for this project to be my own work. However, if there are any improvements you'd like to suggest, you're more than welcome to contact me about it.
 
