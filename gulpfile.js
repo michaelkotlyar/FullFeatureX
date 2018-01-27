@@ -1,6 +1,7 @@
 var path = require('path');
 var gulp = require('gulp');
 var runSequence = require('run-sequence');
+var eslint = require('gulp-eslint');
 var nodemon = require('gulp-nodemon');
 var plumber = require('gulp-plumber');
 var server = require('tiny-lr')();
@@ -36,6 +37,7 @@ var nodemonConfig = {
 
 gulp.task('default', () => {
   runSequence(
+    ['lint'],
     ['lr'],
     ['nodemon'],
     ['watch']
@@ -43,6 +45,13 @@ gulp.task('default', () => {
 });
 
 //sub tasks
+
+gulp.task('lint', () => {
+  return gulp.src(['src/**/*.js'])
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
+});
 
 gulp.task('styles', () => {
   return gulp.src(paths.styles)

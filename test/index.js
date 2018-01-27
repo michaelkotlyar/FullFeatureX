@@ -1,7 +1,22 @@
 var chai = require('chai');
 var chaiHttp = require('chai-http');
+var eslint = require('mocha-eslint');
 var server = require('../src/server/app');
 var should = chai.should();
+
+// Do eslint test first
+var paths = [
+  'src'
+];
+
+var options = {
+  formatter: 'compact',
+  timeout: 5000,
+  slow: 1000,
+  strict: true,
+};
+
+eslint(paths, options);
 
 chai.use(chaiHttp);
 
