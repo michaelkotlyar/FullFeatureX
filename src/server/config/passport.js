@@ -11,11 +11,15 @@ module.exports = function(passport) {
       .first()
       .then(function(user) {
         if (!user) {
-          return done(null, false, { message: 'Username does not exist' });
+          return done(null, false, {message: 'Username does not exist'});
         }
         user.verifyPassword(password, function (error, passwordCorrect) {
-          if (error) { return done(error); }
-          if (!passwordCorrect) { return done(null, false, { message: 'Passord incorrect' }); }
+          if (error) {
+            return done(error);
+          }
+          if (!passwordCorrect) {
+            return done(null, false, {message: 'Passord incorrect'});
+          }
           return done(null, user);
         });
       })

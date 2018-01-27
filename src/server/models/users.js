@@ -25,11 +25,11 @@ class User extends Model {
       type: 'object',
       required: ['username', 'email'],
       properties: {
-        id: { type: 'integer' },
-        username: { type: 'string' },
-        hash: { type: 'string' },
-        email: { type: 'string' },
-        type: { type: 'integer' }
+        id: {type: 'integer'},
+        username: {type: 'string'},
+        hash: {type: 'string'},
+        email: {type: 'string'},
+        type: {type: 'integer'}
       }
     };
   }

@@ -18,7 +18,7 @@ app.set('view engine', 'pug');
 
 app.use(favicon(path.join(__dirname, '..', 'client', 'favicon.ico')));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(sassMiddleware({
   root: path.join(__dirname, '..', 'client', 'stylesheets'),
   src: 'sass',
@@ -68,7 +68,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error', { title: err.status + ' Error' });
+  res.render('error', {title: err.status + ' Error'});
 });
 
 module.exports = app;

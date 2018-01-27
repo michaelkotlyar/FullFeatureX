@@ -16,7 +16,7 @@ module.exports = function(passport) {
         return users;
       })
       .catch(function(error) {
-        res.status(500).send({ error: 'Something failed!' });
+        res.status(500).send({error: 'Something failed!'});
       });
   });
 
@@ -35,7 +35,7 @@ module.exports = function(passport) {
       })
       .catch(function(error) {
         console.log(error);
-        res.status(500).send({ error: 'Something failed!' });
+        res.status(500).send({error: 'Something failed!'});
       });
   });
 
@@ -60,7 +60,9 @@ module.exports = function(passport) {
       bodyClasses: 'float'
     });
     var warningMsg = req.flash('error');
-    if (warningMsg.length !== 0) { renderObject.warning = warningMsg; }
+    if (warningMsg.length !== 0) {
+      renderObject.warning = warningMsg;
+    }
     res.render('login', renderObject);
   });
 
