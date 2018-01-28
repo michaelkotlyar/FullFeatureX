@@ -18,7 +18,7 @@ module.exports = function(passport) {
             return done(error);
           }
           if (!passwordCorrect) {
-            return done(null, false, {message: 'Passord incorrect'});
+            return done(null, false, {message: 'Password incorrect'});
           }
           return done(null, user);
         });
