@@ -9,7 +9,7 @@ A boilerplate, dashboard themed, application with user authentication capabiliti
 ### Backend
 * **[PostgreSQL](http://postgresguide.com)** - This app is built for accessing a PostgreSQL database. The module I use to broker this is [Knex.js](https://www.npmjs.com/package/knex). Knex also supports other database management systems.
 * **[Knex.js](http://knexjs.org/) + [Objection.js](http://vincit.github.io/objection.js/)** - An ORM module I have recently adopted onto the project.
-* **[Passport](https://www.npmjs.com/package/passport)** - This module is used to authenticate and create user sessions. It used to be the bane of my existence, but now, I think I've gotten the use of it.
+* **[Passport](https://www.npmjs.com/package/passport)** - This module is used to authenticate and create user sessions when logging in.
 
 ## Dependencies
 ### Production
