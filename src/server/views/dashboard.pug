@@ -1,6 +1,6 @@
 extends layout
 block body
-  header
+  header.sticky-top
    include header
   #dashboard.container-fluid
     nav(class="col-sm-3 col-md-2 d-sm-block bg-light sidebar")
@@ -9,7 +9,7 @@ block body
     main(class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main")
       h1= title
       block content
-  footer.footer
+  footer(class="footer position-absolute")
     .footer-content.col-sm-9.ml-sm-auto.col-md-10.d-flex.align-items-center.flex-wrap
       div
         include footer
