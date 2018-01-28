@@ -11,7 +11,7 @@ var server = require('tiny-lr')();
 var paths = {
   scripts: [
     path.join('src', 'server', '**', '*.js'),
-    path.join('src', 'client', 'javascripts', '**', '*.js')
+    path.join('src', 'client', 'scripts', '**', '*.js')
   ],
   styles: [
     path.join('src', 'client', 'stylesheets', 'css', '**', '*.css')
