@@ -2,7 +2,8 @@ $(function() {
 
   const PATH = window.location.pathname;
 
-  if (PATH === '/users/register') {
+  switch (PATH) {
+    case '/users/register':
     var confirmPassword = $('#registerConfirmPassword'),
     password = $('#registerPassword');
     $('input[type="password"]').on('keyup', function () {
@@ -15,6 +16,8 @@ $(function() {
         confirmPassword.addClass('is-invalid');
       }
     });
+    break;
+    // END case '/users/register'
   }
 
 });
