@@ -7,9 +7,9 @@ block body
       ul(class="nav nav-pills flex-column")
         include dashboard-menu-items
     main(class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main")
-      h1= title
+      h1.display-4.mb-3= title
       block content
-  footer(class="footer position-absolute")
+  footer(class="footer position-absolute").container-fluid
     .footer-content.col-sm-9.ml-sm-auto.col-md-10.d-flex.align-items-center.flex-wrap
       div
         include footer
