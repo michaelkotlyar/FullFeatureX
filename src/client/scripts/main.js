@@ -1,6 +1,6 @@
 $(function() {
 
-  const PATH = window.location.pathname;
+  const PATH = window.location.pathname.replace(/\/$/, '');
 
   switch (PATH) {
     case '/users/register':
