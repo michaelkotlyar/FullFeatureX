@@ -134,7 +134,5 @@ The rest that you see in the `/users` page are [faker](https://www.npmjs.com/pac
 ## Contribution
 I personally intend for this project to be my own work. However, if there are any improvements you'd like to suggest, you're more than welcome to contact me about it.
 
-It doesn't mean I owe you anything, though :triumph:
-
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
