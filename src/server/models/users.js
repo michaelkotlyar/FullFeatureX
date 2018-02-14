@@ -10,10 +10,12 @@ class User extends Model {
   }
 
   $beforeUpdate(opt, context) {
-    var maybePromise = super.$beforeUpdate(context);
-    return Promise.resolve(maybePromise).then(() => {
-      return this.generateHash();
-    });
+    if (this.hash) {
+      var maybePromise = super.$beforeUpdate(context);
+      return Promise.resolve(maybePromise).then(() => {
+        return this.generateHash();
+      });
+    }
   }
 
   static get tableName() {

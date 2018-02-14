@@ -23,7 +23,10 @@ module.exports = {
     if (req.email !== req.body.email && req.email !== '') {
       user.email = req.body.email;
     }
-    if (req.image) {
+    if (req.body.password && req.body.password !== '') {
+      user.hash = req.body.password; //hashes on model update
+    }
+    if (req.body.image) {
       user.image = req.body.image;
     }
     return User
