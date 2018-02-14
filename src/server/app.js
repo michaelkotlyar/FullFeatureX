@@ -9,6 +9,8 @@ var passport = require('passport');
 require('dotenv').config();
 require('./config/database/connection.js');
 
+var helper = require('./config/helpers.js');
+
 var app = express();
 
 // view engine setup
@@ -67,7 +69,11 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error', {title: err.status + ' Error'});
+  var renderObject = helper.renderObject(req, {
+    title: err.status + ' Error',
+    bodyClasses: ['error']
+  });
+  res.render('error', renderObject);
 });
 
 module.exports = app;
