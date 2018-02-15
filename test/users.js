@@ -3,8 +3,10 @@ var chaiHttp = require('chai-http');
 var server = require('../src/server/app');
 var should = chai.should();
 var knex = require('knex')(require('../knexfile').test);
+var passportStub = require('passport-stub');
 
 chai.use(chaiHttp);
+passportStub.install(server);
 
 describe('routes : user', function() {
 
@@ -15,6 +17,7 @@ describe('routes : user', function() {
   });
 
   afterEach(() => {
+    passportStub.logout();
     return knex.migrate.rollback();
   });
 
@@ -89,37 +92,24 @@ describe('routes : user', function() {
     });
   });
 
-  //TODO: make this test actually work
-  describe('POST /users/profile', function() { //this test passes but doesn't work
-    it('should change the username Michael to Micool', function(done) {
-      chai.request(server)
-      .post('/users/login')
-      .send({
-        username: 'Michael',
-        password: 'michael'
-      });
-
-      chai.request(server)
-      .post('/users/profile')
-      .send({
-        username: 'Micool'
-      });
-
-      chai.request(server)
-      .get('/users/logout');
-
-      chai.request(server)
-      .post('/users/login')
-      .send({
-        username: 'Micool',
-        password: 'michael'
-      })
-      .end(function(err, res) {
-        res.status.should.equal(200);
-        // res.redirects.length.should.equal(2);
-        done();
-      });
-    });
-  });
+  // //TODO: make this test actually work
+  // describe('POST /users/profile', function() { //this test passes but doesn't work
+  //   it('should change the username Michael to Micool', function(done) {
+  //     passportStub.login({
+  //       username: 'Michael',
+  //       password: 'michael'
+  //     });
+  //     chai.request(server)
+  //     .post('/users/profile')
+  //     .send({
+  //       username: 'Micool'
+  //     })
+  //     .end(function(err, res) {
+  //       res.status.should.equal(200);
+  //       // res.redirects.length.should.equal(2);
+  //       done();
+  //     });
+  //   });
+  // });
 
 });
