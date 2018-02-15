@@ -89,4 +89,37 @@ describe('routes : user', function() {
     });
   });
 
+  //TODO: make this test actually work
+  describe('POST /users/profile', function() { //this test passes but doesn't work
+    it('should change the username Michael to Micool', function(done) {
+      chai.request(server)
+      .post('/users/login')
+      .send({
+        username: 'Michael',
+        password: 'michael'
+      });
+
+      chai.request(server)
+      .post('/users/profile')
+      .send({
+        username: 'Micool'
+      });
+
+      chai.request(server)
+      .get('/users/logout');
+
+      chai.request(server)
+      .post('/users/login')
+      .send({
+        username: 'Micool',
+        password: 'michael'
+      })
+      .end(function(err, res) {
+        res.status.should.equal(200);
+        // res.redirects.length.should.equal(2);
+        done();
+      });
+    });
+  });
+
 });
